@@ -15,43 +15,43 @@ const orderDetailSchema = new schema({
     type: String,
     required: true,
   },
-  isSpecial:{
+  isSpecial: {
     type: Boolean,
     required: true,
   },
-  image:{
+  image: {
     type: String,
     required: true,
   },
-  ingredients:{
+  ingredients: {
     type: String,
     required: true,
   },
-  price:{
+  price: {
     type: Int16Array,
     required: true,
   },
-  addIngredients:{
+  addIngredients: {
     type: String,
     required: true,
   },
-  specialPrice:{
+  specialPrice: {
     type: Int16Array,
     required: true,
   },
-  removeIngredients:{
+  removeIngredients: {
     type: String,
     required: true,
   },
-  quantity:{
+  quantity: {
     type: Int16Array,
     required: true,
   },
-  tax:{
+  tax: {
     type: Int16Array,
     required: true,
   },
-  tip:{
+  tip: {
     type: Int16Array,
     required: true,
   },

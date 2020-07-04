@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongoUri = 
+const mongoUri =
   process.env.MONGODB_URI || "mongodb://localhost:27017/hobnobdb";
 
 const dbOptions = {
