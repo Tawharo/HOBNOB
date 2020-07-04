@@ -7,11 +7,11 @@ const menuSchema = new Schema({
     required: true,
   },
   type: {
-    type: Boolean,
+    type: String,
     required: true,
   },
   isSpecial: {
-    bool: false,
+    type: Boolean,
   },
   image: {
     type: String,
@@ -22,26 +22,26 @@ const menuSchema = new Schema({
     required: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   addIngredients: {
     type: String,
-    required: true,
+    required: false,
   },
   specialPrice: {
-    type: Number,
-    required: true,
+    type: String,
+    required: false,
   },
   removeIngredients: {
     type: String,
-    required: true,
+    required: false,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  // createdAt: {
+  //   type: Date,
+  //   default: Date.now,
+  // },
 });
 
-const menu = mongoose.model("Newmenu", menuSchema);
-module.exports = menu;
+const Menu = mongoose.model("menu", menuSchema);
+module.exports = Menu;

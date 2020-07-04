@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(authRouter, usersRouter, errorMiddleware);
-app.use(authRouter, menusRouter, errorMiddleware);
+app.use(menusRouter);
 
 // Send all other requests to react app
 app.get("*", (req, res) => {
