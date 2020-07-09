@@ -9,6 +9,8 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Menu from "./components/MenuItems"
+import MenuItems from "./components/MenuItems/MenuItems";
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
+              <MenuItems />
             </ProtectedRoute>
           </Switch>
         </div>
