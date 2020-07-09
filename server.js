@@ -6,6 +6,7 @@ const morgan = require("morgan");
 const initDb = require("./config/initDb");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
+const menusRouter = require("./routes/menus");
 const errorMiddleware = require("./routes/errorMiddleware");
 
 const PORT = process.env.PORT || 3001;
@@ -27,6 +28,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(authRouter, usersRouter, errorMiddleware);
+app.use(menusRouter);
 
 // Send all other requests to react app
 app.get("*", (req, res) => {
