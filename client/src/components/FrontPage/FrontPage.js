@@ -6,7 +6,7 @@ function FrontPage() {
     return (
         <>
             <h1>HOBNOB</h1>
-            <p>eat. drink. socialize</p>
+            <p>eat.drink.socialize</p>
             <p>6010 HERMITAGE ROADRICHMOND, VIRGINIA, 23228 (804) 264-7400 EAT@HOBNOBRVA.COM</p>
             <footer className="image-div">
                 <img src="https://www.kindpng.com/picc/m/20-209935_facebook-icon-clipart-social-media-icons-grey-facebook.png" alt="fb" />
