@@ -31,7 +31,38 @@ function Navbar() {
         Login
       </NavLink>
     );
+    links.push(
+      <NavLink key="frontpage" className="nav-item" to="/frontpage">
+        Home
+      </NavLink>
+    );
+    links.push(
+      <NavLink key="menu" className="nav-item" to="/menu">
+        Menu
+      </NavLink>
+    );
+    links.push(
+      <NavLink key="joinourteam" className="nav-item" to="/joinourteam">
+        Join Our Team
+      </NavLink>
+    );
+    links.push(
+      <NavLink key="contact" className="nav-item" to="/contact">
+        Contact
+      </NavLink>
+    );
+    links.push(
+      <NavLink key="reservation" className="nav-item" to="/reservation">
+        Reservation
+      </NavLink>
+    );
+    links.push(
+      <NavLink key="location" className="nav-item" to="/location">
+        Location
+      </NavLink>
+    );
   }
+
   return <nav className="Navbar">{links}</nav>;
 }
 

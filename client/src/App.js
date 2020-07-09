@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import FrontPage from "./components/FrontPage/FrontPage";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             </ProtectedRoute>
             <Route exact path="/login">
               <Login />
+            </Route>
+            <Route exact path="/frontpage">
+              <FrontPage />
             </Route>
             <Route exact path="/signup">
               <Signup />
