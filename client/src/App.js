@@ -10,6 +10,8 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import FrontPage from "./components/FrontPage/FrontPage";
+import Reservation from "./components/Reservation/Reservation";
+import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 
 function App() {
   return (
@@ -29,6 +31,12 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/reservation">
+              <Reservation />
+            </Route>
+            <Route exact path="/joinourteam">
+              <JoinOurTeam />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
