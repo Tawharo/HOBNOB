@@ -1,12 +1,12 @@
 .Navbar,
 .Navbar * {
   color: white;
-  background-color: #33ccff;
+  /* background-color: ; */
 }
 
 .Navbar {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   padding: 0;
 }
 
