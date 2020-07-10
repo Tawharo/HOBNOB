@@ -13,7 +13,7 @@ router.get("/api/menu", (req, res) => {
     if (!data) {
       return res.status(404).json({ success: false, message: "No user found" });
     }
-    return res.status(200).json({ success: true, x: data });
+    return res.status(200).json({ success: true, data });
   }).catch((err) => res.status(400).send(err));
 });
 
@@ -65,7 +65,7 @@ router.put("/api/menu/:id", (req, res) => {
 /////////////////////////delete by Id/////////////////////////////////
 router.delete("/api/menu/:id", (req, res) => {
   const id = req.params.id;
-  db.Menu.findOneAndDelete(id)
+  db.Menu.findOneAndRemove(id)
     .then((data) => {
       if (!data) {
         res.status(404).send({ message: "Menu id not found" });
@@ -78,17 +78,19 @@ router.delete("/api/menu/:id", (req, res) => {
     });
 });
 /////////////////////// find by menu type//////////////////////////
-// router.get("api/menu/type", (req, res)=>{
-//   const t = req.query.type;
-//   let condition=type ? {"type":{$regex: new RegExp(t),$options:"i"}}:{};
-//   db.Menu.find(condition)
-//   .then((data =>{
-//     res.send(data)
-//   })
-//   .catch(err =>{
-//      res.status(500).send({
-//        message:"Can not retriveing menu by type"});
-//   })
-// })
+router.get("api/menu/type", (req, res) => {
+  const ty = req.param.type;
+  db.Menu.find({ type: { $eq: ty } })
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({ message: "Menu type not found" });
+      } else {
+        res.json(data);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: "Can not retriveing menu by type" });
+    });
+});
 
 module.exports = router;

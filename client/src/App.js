@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+ import Order from "./components/Order";
 
 function App() {
   return (
@@ -28,9 +29,10 @@ function App() {
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
+              <Order />
             </ProtectedRoute>
           </Switch>
-        </div>
+          </div>
       </Router>
     </AuthProvider>
   );
