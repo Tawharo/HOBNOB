@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import FrontPage from "./components/FrontPage/FrontPage";
 import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
+import Menu from "./pages/Menu";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
             </Route>
             <Route exact path="/frontpage">
               <FrontPage />
+            </Route>
+            <Route exact path="/menu">
+              <Menu />
             </Route>
             <Route exact path="/signup">
               <Signup />
