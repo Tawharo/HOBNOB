@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import FrontPage from "./components/FrontPage/FrontPage";
 import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
+import Contact from "./components/Contact/Contact";
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <Route exact path="/joinourteam">
               <JoinOurTeam />
+            </Route>
+            <Route exact path="/contact">
+              <Contact />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
