@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Navbar/Navbar.css';
 
 function Contact() {
     return (
@@ -27,32 +28,29 @@ function Contact() {
                         </div>
                         <div class="row">
                             <div class="input-field col m4">
-                                <input disabled value="I am not editable" id="disabled" type="text" class="validate" />
-                                <label for="disabled">Disabled</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col m4">
-                                <input id="password" type="password" class="validate" />
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col m4">
                                 <input id="email" type="email" class="validate" />
                                 <label for="email">Email</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col m4">
-                                This is an inline input field:
-                                <div class="input-field inline">
-                                    <input id="email_inline" type="email" class="validate" />
-                                    <label for="email_inline">Email</label>
-                                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-                                </div>
+                            <div class="input-field col m4">
+                                <input id="subject" type="text" class="validate" />
+                                <label for="subject">Subject</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <form class="col m10">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea id="message" class="materialize-textarea"></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+                        </button>
                     </form>
                 </div>
             </div>

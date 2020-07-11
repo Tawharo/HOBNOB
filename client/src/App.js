@@ -7,12 +7,13 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import FrontPage from "./components/FrontPage/FrontPage";
 import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
+import Location from "./components/Location/Location";
 
 function App() {
   return (
@@ -21,9 +22,9 @@ function App() {
         <div>
           <Navbar />
           <Switch>
-            <ProtectedRoute exact path="/">
+            {/* <ProtectedRoute exact path="/">
               <Home />
-            </ProtectedRoute>
+            </ProtectedRoute> */}
             <Route exact path="/login">
               <Login />
             </Route>
@@ -41,6 +42,9 @@ function App() {
             </Route>
             <Route exact path="/contact">
               <Contact />
+            </Route>
+            <Route exact path="/location">
+              <Location />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
