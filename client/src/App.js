@@ -16,6 +16,8 @@ import Contact from "./components/Contact/Contact";
 import MenuItems from "./components/MenuItems";
 // import Menu from "./components/Menu"
 import Starters from "./components/Starters";
+import Menu from "./pages/Menu";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -44,6 +46,9 @@ function App() {
             </Route>
             <Route exact path="/contact">
               <Contact />
+            </Route>
+            <Route exact path="/menu">
+              <Menu />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
