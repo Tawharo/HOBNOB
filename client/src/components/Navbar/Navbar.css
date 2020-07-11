@@ -1,6 +1,7 @@
 .Navbar,
 .Navbar * {
   color: white;
+  background-color: rgb(47, 45, 45);
 }
 
 .Navbar {
@@ -19,7 +20,11 @@
 
 .Navbar .nav-item:hover,
 .Navbar .nav-item.active {
-  border-bottom: 0.3rem solid #ff982b;
+  color: rgb(77, 255, 0);
+}
+
+.Navbar .nav-item:focus {
+  color: #eab126;
 }
 
 .Navbar .nav-item.active:hover {
