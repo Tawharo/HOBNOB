@@ -1,6 +1,6 @@
-const foodData = [
+const startersData = [
   {
-    "_id": ObjectId("5f03d0d425a0ed78961ed591"),
+    "_id": "5f03d0d425a0ed78961ed591",
     "menuItemName": "Peach & Cucumber Gazpacho",
     "type": "starter",
     "isSpecial": false,
@@ -13,7 +13,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d0d425a0ed78961ed592"),
+    "_id": "5f03d0d425a0ed78961ed592",
     "menuItemName": "Veggie Spring Rolls (V)",
     "type": "starter",
     "isSpecial": false,
@@ -26,7 +26,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d0d425a0ed78961ed593"),
+    "_id": "5f03d0d425a0ed78961ed593",
     "menuItemName": "Hobnob Cob (V, GF)",
     "type": "starter",
     "isSpecial": false,
@@ -39,7 +39,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d0d425a0ed78961ed594"),
+    "_id": "5f03d0d425a0ed78961ed594",
     "menuItemName": "Buffalo Wings (GF)",
     "type": "starter",
     "isSpecial": false,
@@ -52,7 +52,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d0d425a0ed78961ed595"),
+    "_id": "5f03d0d425a0ed78961ed595",
     "menuItemName": "Steak Wedge Salad (GF)",
     "type": "starter",
     "isSpecial": false,
@@ -65,7 +65,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d0d425a0ed78961ed596"),
+    "_id": "5f03d0d425a0ed78961ed596",
     "menuItemName": "Strawberry Goat Cheese Salad (V, GF)",
     "type": "starter",
     "isSpecial": false,
@@ -78,7 +78,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d0d425a0ed78961ed597"),
+    "_id": "5f03d0d425a0ed78961ed597",
     "menuItemName": "Avocado Caprese Salad (V, GF)",
     "type": "starter",
     "isSpecial": false,
@@ -91,7 +91,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d0d425a0ed78961ed598"),
+    "_id": "5f03d0d425a0ed78961ed598",
     "menuItemName": "Fried Chicken Cobb Salad",
     "type": "starter",
     "isSpecial": false,
@@ -104,7 +104,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d17225a0ed78961ed599"),
+    "_id": "5f03d17225a0ed78961ed599",
     "menuItemName": "Peach & Cucumber Gazpacho",
     "type": "starter",
     "isSpecial": false,
@@ -117,7 +117,7 @@ const foodData = [
     "customOption": null
   },
   {
-    "_id": ObjectId("5f03d17225a0ed78961ed59a"),
+    "_id": "5f03d17225a0ed78961ed59a",
     "menuItemName": "Veggie Spring Rolls (V)",
     "type": "starter",
     "isSpecial": false,
@@ -130,4 +130,5 @@ const foodData = [
     "customOption": null
   }
 ]
-export default foodData;
+
+export default startersData;

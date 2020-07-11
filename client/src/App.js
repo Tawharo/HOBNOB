@@ -14,7 +14,7 @@ import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Menu from "./pages/Menu";
 import Contact from "./components/Contact/Contact";
-
+import Footer from "./components/Footer";
 function App() {
   return (
     <AuthProvider>
@@ -50,6 +50,7 @@ function App() {
               <Profile />
             </ProtectedRoute>
           </Switch>
+          <Footer />
         </div>
       </Router>
     </AuthProvider>
