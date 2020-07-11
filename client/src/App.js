@@ -12,9 +12,11 @@ import Navbar from "./components/Navbar";
 import FrontPage from "./components/FrontPage/FrontPage";
 import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
-import Menu from "./pages/Menu";
 import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer";
+import MenuItems from "./components/MenuItems";
+// import Menu from "./components/Menu"
+import Starters from "./components/Starters";
+
 function App() {
   return (
     <AuthProvider>
@@ -31,9 +33,6 @@ function App() {
             <Route exact path="/frontpage">
               <FrontPage />
             </Route>
-            <Route exact path="/menu">
-              <Menu />
-            </Route>
             <Route exact path="/signup">
               <Signup />
             </Route>
@@ -48,6 +47,7 @@ function App() {
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
+              <Starters />
             </ProtectedRoute>
           </Switch>
           <Footer />

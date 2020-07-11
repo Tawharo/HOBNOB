@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 h1 {
   color: rgb(77, 255, 0);
   font-family: "Source Sans Pro", Tahoma, Arial, sans-serif;
@@ -15,3 +16,28 @@ img {
   width: 50px;
   height: 50px;
 }
+=======
+
+h1 {
+    color: rgb(77, 255, 0);
+    font-family: "Source Sans Pro",Tahoma,Arial,sans-serif;
+    font-size: 150px;
+    text-align: center;
+    margin-top: 200px;
+}
+
+p {
+    text-align: center;
+    color: white
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}
+
+.image-div {
+    margin-left: 650px;
+    margin-top: 140px;
+}
+>>>>>>> 20921d83b1f262b6d895cde07c668e6bfb603761
