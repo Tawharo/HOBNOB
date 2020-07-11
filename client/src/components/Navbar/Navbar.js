@@ -69,7 +69,7 @@ function Navbar() {
 function BrandLink(props) {
   return (
     <NavLink className="nav-item brand" exact {...props}>
-      React JWT
+      {/* React JWT */}
     </NavLink>
   );
 }
