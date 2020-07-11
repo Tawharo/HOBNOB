@@ -9,8 +9,13 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import Menu from "./components/MenuItems"
-import MenuItems from "./components/MenuItems/MenuItems";
+import FrontPage from "./components/FrontPage/FrontPage";
+import Reservation from "./components/Reservation/Reservation";
+import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
+import Contact from "./components/Contact/Contact";
+import MenuItems from "./components/MenuItems"
+// import Menu from "./components/Menu"
+import Starters from "./components/Starters";
 
 function App() {
   return (
@@ -25,12 +30,24 @@ function App() {
             <Route exact path="/login">
               <Login />
             </Route>
+            <Route exact path="/frontpage">
+              <FrontPage />
+            </Route>
             <Route exact path="/signup">
               <Signup />
             </Route>
+            <Route exact path="/reservation">
+              <Reservation />
+            </Route>
+            <Route exact path="/joinourteam">
+              <JoinOurTeam />
+            </Route>
+            <Route exact path="/contact">
+              <Contact />
+            </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
-              <MenuItems />
+              <Starters />
             </ProtectedRoute>
           </Switch>
         </div>

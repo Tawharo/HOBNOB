@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export default {
   // Gets a single user by id
   getUser: (id) => {
@@ -11,11 +12,7 @@ export default {
   },
 
   // retrieve menu items
-  getMenu: function() {
-   axios.get("/api/menu")
-   .then(resp => resp.json())
-   .then(data => {
-     console.log(data)
-   });
-  }
-};
+  getMenu: () => {
+    return axios.get("/api/menu",{});
+   }
+  };

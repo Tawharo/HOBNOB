@@ -1,32 +1,25 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
+import startersData from "./startersData";
+import Starter from "./Starter.js";
 import "./MenuItems.css";
-import Randomcolor from "randomcolor"
-// import API from "./utils/API.js"
+// import API from "../../utils/API";
  
 
 function MenuItems() {
 
-  const [menuItem, setMenuItem] = useState(0);
-  const [color, setColor] = useState("");
- 
-  function increment() {
-   setMenuItem (prevmenuItem => prevmenuItem + 1)
- }
+  /* const starters = API.getMenu().then {};
+  console.log(starters); */
 
- function decrement() {
-   setMenuItem (prevmenuItem => prevmenuItem - 1)
-}
-
-useEffect(()=> {
-   setColor(Randomcolor())
-}, [])
-
+ const menuStarters = startersData.map(starterData => 
+ <Starter key={starterData.idAuto} name={starterData.menuItemName} 
+  ingredients={starterData.ingredients} price={starterData.price}/>);
+  
   return (
-    <div><h1>Hello</h1><h2 style={{color: color}}>{ menuItem }</h2>
-    <h3><button onClick={ increment}>Increment!</button></h3>
-    <h3><button onClick={ decrement}>Decrement!</button></h3>
+    <div>
+      { menuStarters }
     </div>
-  );
+  )
+
 }
 
 
