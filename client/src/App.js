@@ -50,12 +50,12 @@ function App() {
             </Route>
             <Route exact path="/menu">
               <Menu />
+            </Route>
             <Route exact path="/location">
               <Location />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
-              <Starters />
             </ProtectedRoute>
           </Switch>
           <Footer />

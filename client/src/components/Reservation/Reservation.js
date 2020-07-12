@@ -1,11 +1,12 @@
 import React from "react";
 import "../Navbar/Navbar.css";
+import Logo from "../Logo";
 
 function Reservation() {
   return (
     <>
-      <h1>HOBNOB</h1>
-      <p>eat. drink. socialize</p>
+      <Logo />
+
       <p>
         PLEASE NOTE: With the rapidly changing nature of events related to
         COVID-19, we can not anticipate how long our patio and dining room will
