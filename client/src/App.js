@@ -9,14 +9,11 @@ import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-<<<<<<< HEAD
  import Order from "./components/Order";
-=======
 import FrontPage from "./components/FrontPage/FrontPage";
 import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
->>>>>>> 51e11b3f4de7c6a92afa4954c325797d2ce36757
 
 function App() {
   return (

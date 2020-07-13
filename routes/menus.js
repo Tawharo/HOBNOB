@@ -18,8 +18,8 @@ router.get("/api/menu", (req, res) => {
 });
 
 ////////////////////get by id ///////////////////////
-router.get("/api/menu/:id", (req, res) => {
-  db.Menu.findById(req.params.id)
+router.get("/api/menu/:type", (req, res) => {
+  db.Menu.findById(req.params.type)
     .then((data) => {
       if (data) {
         res.json(data);

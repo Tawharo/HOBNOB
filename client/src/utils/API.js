@@ -4,12 +4,12 @@ export default {
   getUser: (id) => {
     return axios.get(`/api/user/${id}`);
   },
-  //
-  postOrder:(title,body)=>{
-    return axios.post("api/order",{menuType:title,menuItemName:body});
-  },
-  getOrder:()=>{
-    return axios.get("api/order",{});
+
+  // postOrder:(title,body)=>{
+  //   return axios.post("api/order",{menuType:title,menuItemName:body});
+  // },
+  getMenu:()=>{
+    return axios.get("api/menu");
   },
   // sign up a user to our service
   signUpUser: (username, email, password) => {
