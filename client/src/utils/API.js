@@ -16,7 +16,10 @@ export default {
   },
 
   // retrieve menu items
-  getMenu: () => {
+  // getMenu: () => {
+  //   return axios.get("api/menu", {});
+  // },
+  getMenu: (res) => {
     return axios.get("api/menu", {});
   },
 

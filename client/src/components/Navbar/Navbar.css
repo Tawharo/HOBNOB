@@ -2,6 +2,7 @@
 .Navbar * {
   color: white;
   background-color: rgb(47, 45, 45);
+  box-shadow: none;
 }
 
 .Navbar {

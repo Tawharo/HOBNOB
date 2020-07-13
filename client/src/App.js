@@ -19,6 +19,7 @@ import Starters from "./components/Starters";
 import Menu from "./pages/Menu";
 import Footer from "./components/Footer";
 import Location from "./components/Location/Location";
+import Pickup from "./pages/Pickup";
 
 function App() {
   return (
@@ -53,6 +54,9 @@ function App() {
             </Route>
             <Route exact path="/location">
               <Location />
+            </Route>
+            <Route exact path="/pickup">
+              <Pickup />
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
