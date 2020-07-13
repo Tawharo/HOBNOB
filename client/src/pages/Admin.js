@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import API from "./../utils/API";
+import API from "../utils/API";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 
-function Profile() {
+function Admin() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
@@ -20,7 +20,7 @@ function Profile() {
 
   return (
     <Container>
-      <h1>On the profile page!</h1>
+      <h1>On the admin page!</h1>
       <p>Username: {username}</p>
       <p>Email: {email}</p>
       <p>Role: {role}</p>
@@ -29,4 +29,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Admin;
