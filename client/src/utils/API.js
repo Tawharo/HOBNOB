@@ -8,11 +8,22 @@ export default {
 
   // sign up a user to our service
   signUpUser: (username, email, password) => {
-    return axios.post("api/signup", { username: username, email: email, password: password });
+    return axios.post("api/signup", {
+      username: username,
+      email: email,
+      password: password,
+    });
   },
 
   // retrieve menu items
-  getMenu: () => {
-    return axios.get("/api/menu",{});
-   }
-  };
+  // getMenu: () => {
+  //   return axios.get("api/menu", {});
+  // },
+  getMenu: (res) => {
+    return axios.get("api/menu", {});
+  },
+
+  postOrder: (title, body) => {
+    return axios.post("api/menu", { menuType: title, menuItemName: body });
+  },
+};

@@ -61,6 +61,11 @@ function Navbar() {
         Location
       </NavLink>
     );
+    links.push(
+      <NavLink key="pickup" className="nav-item" to="/pickup">
+        Pickup
+      </NavLink>
+    );
   }
 
   return <nav className="Navbar">{links}</nav>;

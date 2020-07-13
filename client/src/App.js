@@ -13,10 +13,13 @@ import FrontPage from "./components/FrontPage/FrontPage";
 import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
-// import MenuItems from "./components/MenuItems"
+import MenuItems from "./components/MenuItems";
 // import Menu from "./components/Menu"
 import Starters from "./components/Starters";
-import Location from "./components/Location";
+import Menu from "./pages/Menu";
+import Footer from "./components/Footer";
+import Location from "./components/Location/Location";
+import Pickup from "./pages/Pickup";
 
 function App() {
   return (
@@ -46,14 +49,26 @@ function App() {
             <Route exact path="/contact">
               <Contact />
             </Route>
+<<<<<<< HEAD
             <Route exact path="/location">
               <Location />
             </Route>
+=======
+            <Route exact path="/menu">
+              <Menu />
+            </Route>
+            <Route exact path="/location">
+              <Location />
+            </Route>
+            <Route exact path="/pickup">
+              <Pickup />
+            </Route>
+>>>>>>> 4278b899939e848d58d009ecf25c14157c3f0a8d
             <ProtectedRoute exact path="/profile">
               <Profile />
-              <Starters />
             </ProtectedRoute>
           </Switch>
+          <Footer />
         </div>
       </Router>
     </AuthProvider>
