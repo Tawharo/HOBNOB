@@ -4,8 +4,10 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 // Our Components
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminRoute from "./components/AdminRoute";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import Admin from "./pages/Admin";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
@@ -49,11 +51,6 @@ function App() {
             <Route exact path="/contact">
               <Contact />
             </Route>
-<<<<<<< HEAD
-            <Route exact path="/location">
-              <Location />
-            </Route>
-=======
             <Route exact path="/menu">
               <Menu />
             </Route>
@@ -63,10 +60,12 @@ function App() {
             <Route exact path="/pickup">
               <Pickup />
             </Route>
->>>>>>> 4278b899939e848d58d009ecf25c14157c3f0a8d
             <ProtectedRoute exact path="/profile">
               <Profile />
             </ProtectedRoute>
+            <AdminRoute exact path="/admin">
+              <Admin />
+            </AdminRoute>
           </Switch>
           <Footer />
         </div>

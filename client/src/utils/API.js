@@ -5,6 +5,11 @@ export default {
   getUser: (id) => {
     return axios.get(`/api/user/${id}`);
   },
+  getRole: (id) => {
+    const user =  axios.get(`/api/user/${id}`);
+    console.log(user);
+    return user.role
+  },
 
   // sign up a user to our service
   signUpUser: (username, email, password) => {
