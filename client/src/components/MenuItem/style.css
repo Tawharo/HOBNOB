@@ -1,0 +1,25 @@
+.card {
+  background-color: rgba(245, 245, 245, 0);
+  height: 100px;
+  position: relative;
+  width: 325px;
+  margin-left: 200px;
+  box-shadow: none;
+}
+
+.price {
+  color: white;
+  float: right;
+}
+
+.menuTitle {
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  display: inline;
+}
+
+.menuDescription {
+  color: white;
+  width: 200px;
+}
