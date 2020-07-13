@@ -7,19 +7,16 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import FrontPage from "./components/FrontPage/FrontPage";
 import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
-<<<<<<< HEAD
-import MenuItems from "./components/MenuItems"
+// import MenuItems from "./components/MenuItems"
 // import Menu from "./components/Menu"
 import Starters from "./components/Starters";
-=======
-import Location from "./components/Location/Location";
->>>>>>> 0b59d497f5d9303392fb9bac448f3ed4df6a00bd
+import Location from "./components/Location";
 
 function App() {
   return (
@@ -28,9 +25,9 @@ function App() {
         <div>
           <Navbar />
           <Switch>
-            {/* <ProtectedRoute exact path="/">
+            {<ProtectedRoute exact path="/">
               <Home />
-            </ProtectedRoute> */}
+            </ProtectedRoute>}
             <Route exact path="/login">
               <Login />
             </Route>
