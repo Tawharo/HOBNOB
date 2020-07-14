@@ -2,6 +2,7 @@
 .Navbar * {
   color: white;
   background-color: rgb(47, 45, 45);
+  box-shadow: none;
 }
 
 .Navbar {
@@ -24,7 +25,7 @@
 }
 
 .Navbar .nav-item:focus {
-  color: #EAB126
+  color: #eab126;
 }
 
 .Navbar .nav-item.active:hover {
