@@ -15,6 +15,7 @@ import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
 
+
 function App() {
   return (
     <AuthProvider>
