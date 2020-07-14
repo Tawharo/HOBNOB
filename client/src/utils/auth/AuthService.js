@@ -1,18 +1,35 @@
 import decode from "jwt-decode";
 import axios from "axios";
-export default class AuthService {
+import API from "../API";
 
+
+export default class AuthService {
+  
+  constructor(){
+    this.state = {
+      role: "user"
+    };
+  }
     login = (email, password) => {
       // Get a token
-      return axios.post("api/login", {email: email, password: password})
+      const user = axios.post("api/login", {email: email, password: password})
         .then(res => {
+          console.log(res);
           // set the token once the user logs in
           this.setToken(res.data.token);
+          //this.setRole()
+          this.state.role = res.data.user.role;
           // return the rest of the response
           return res;
         });
+
+      return user;
     };
 
+    getRole = (id) => {
+      return this.state.role;
+      
+    }
     getProfile = () => {
       return decode(this.getToken());
     };

@@ -1,10 +1,16 @@
+/* 
+body {
+    background-image: url("https://image.freepik.com/free-photo/green-cocktail-with-slice-lime-wasabi-black-background_78820-72.jpg");
+    background-repeat: no-repeat;
+    background-size: cover
+} */
 
 h1 {
     color: rgb(77, 255, 0);
-    font-family: "Source Sans Pro",Tahoma,Arial,sans-serif;
+    font-family: 'Pathway Gothic One', sans-serif;
     font-size: 150px;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 p {
@@ -17,7 +23,12 @@ img {
     height: 50px;
 }
 
-.image-div {
+/* .image-div {
     margin-left: 650px;
     margin-top: 140px;
+} */
+
+footer {
+    display: block;
+    margin: 0 auto;
 }

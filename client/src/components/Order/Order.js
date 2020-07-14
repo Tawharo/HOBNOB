@@ -4,10 +4,10 @@ import API from "../../utils/API";
 import "./Order.css";
 
 class orders extends React.Component {
-   constructor(props){
-     super(props)
-     this.addItem=this.addItem.bind(this);
-    }
+  constructor(props){
+    super(props);
+    this.addItem=this.addItem.bind(this);
+  }
   state = {
     addtocart: [],
     menus: [],
@@ -30,7 +30,7 @@ class orders extends React.Component {
   };
 
   displaymenus = (posts) => {
-    if (!posts.length) return null;
+    if (!posts.length) {return null;}
     return posts.map((order, index) => {
       const printmenu = { order }.order;
       return (
@@ -59,7 +59,7 @@ class orders extends React.Component {
   addItem = (event, items) => {
     event.preventDefault();
     console.log("add", this.state.addtocart);
-    if (!items.length) return null;
+    if (!items.length) {return null;}
     items.map((order, index) => {
       
       const printmenu = { order }.order;
