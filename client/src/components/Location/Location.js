@@ -11,7 +11,7 @@ function Location() {
 
             <SimpleMap />
             <Marker />
-            <div className="row">
+            <div style={{ height: '50vh', width: '50%', margin: '0 auto' }} className="row">
                 <div className="col m3">
                     <p><strong>Location</strong></p>
                     <p>6010 Hermitage Rd. Richmond, VA 23228</p>

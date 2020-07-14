@@ -9,7 +9,7 @@ function FrontPage() {
             <p>eat. drink. socialize</p>
             <p>6010 HERMITAGE ROAD RICHMOND, VIRGINIA, 23228 (804) 264-7400 EAT@HOBNOBRVA.COM</p>
             <footer>
-                <img src="https://www.kindpng.com/picc/m/20-209935_facebook-icon-clipart-social-media-icons-grey-facebook.png" alt="fb" />
+                <img src="https://png-assets.com/wp-content/uploads/inspiring-facebook-logo-png-circle-and-fb-icon-png-facebook-logo-grey-circle-clip-art-library.png" alt="fb" />
                 <img src="https://www.beerinstitute.org/wp-content/uploads/2017/07/instagram-icon-grey.3cf404e5.png" alt="insta" />
             </footer>
 
