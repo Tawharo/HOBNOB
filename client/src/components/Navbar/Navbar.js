@@ -6,7 +6,7 @@ import "./Navbar.css";
 // NavLink adds "active" to className when path matches.
 
 function Navbar() {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, logout, role} = useAuth();
   const links = [<BrandLink key="/" to="/" />];
 
   if (isLoggedIn) {
@@ -15,6 +15,14 @@ function Navbar() {
         Profile
       </NavLink>
     );
+    if(role === "admin") {
+      links.push(
+        <NavLink key="admin" className="nav-item" to="/admin">
+          Admin
+        </NavLink>
+      );
+    }
+   
     links.push(
       <span key="lougout" className="nav-item" onClick={logout}>
         Logout
