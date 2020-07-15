@@ -1,4 +1,8 @@
-@import-normalize;
+/* @media (min-width: 768px) {
+  .container {
+    display: flex;
+  }
+} */
 body {
   margin: 0;
   padding: 0;
@@ -7,20 +11,51 @@ body {
 }
 
 * {
-  color: #006181;
+  color: white;
 }
 
 button {
   border: none;
   cursor: pointer;
-  background-color: #33ccff;
+  background-color: rgb(225, 70, 45);
   color: white;
   font-size: 1.125rem;
   padding: 0.75rem 1.5rem;
+  border-radius: 5px;
 }
 
 button:hover,
 button:active,
 button:focus {
-  background-color: #01bdfb;
+  background-color: rgb(197, 43, 12);
+}
+
+.menuField {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.menuGroup {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+/* .main {
+  display: flex;
+} */
+
+.rock {
+  flex: auto;
+  flex-wrap: wrap;
+  align-items: right;
+  justify-content: space-between;
+}
+
+.funny {
+  flex: 2;
+}
+
+.signupLogo {
 }

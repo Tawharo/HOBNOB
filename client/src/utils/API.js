@@ -6,9 +6,9 @@ export default {
     return axios.get(`/api/user/${id}`);
   },
   getRole: (id) => {
-    const user =  axios.get(`/api/user/${id}`);
+    const user = axios.get(`/api/user/${id}`);
     console.log(user);
-    return user.role
+    return user.role;
   },
 
   // sign up a user to our service
@@ -21,9 +21,10 @@ export default {
   },
 
   // retrieve menu items
-  // getMenu: () => {
-  //   return axios.get("api/menu", {});
-  // },
+  getMenu: () => {
+    return axios.get("api/menu", {});
+  },
+
   getMenu: (res) => {
     return axios.get("api/menu", {});
   },

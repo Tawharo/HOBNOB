@@ -48,7 +48,7 @@ function Signup() {
 
   return (
     <div style={signupStyles} className="Signup">
-      <h1>Signup</h1>
+      <h1 className="signupLogo">Signup</h1>
       <Form onSubmit={handleFormSubmit}>
         <InputGroup
           id="username"

@@ -30,9 +30,11 @@ function App() {
         <div>
           <Navbar />
           <Switch>
-            {<ProtectedRoute exact path="/">
-              <Home />
-            </ProtectedRoute>}
+            {
+              <ProtectedRoute exact path="/">
+                <Home />
+              </ProtectedRoute>
+            }
             <Route exact path="/login">
               <Login />
             </Route>
