@@ -4,12 +4,11 @@ import API from "../../utils/API";
 import "./Order.css";
 
 class orders extends React.Component {
-  constructor(props){
-    super(props);
-    this.addItem=this.addItem.bind(this);
-  }
+  //  constructor(props){
+  //    super(props)
+  //   }
   state = {
-    addtocart: [],
+    cart: [],
     menus: [],
   };
 
@@ -20,7 +19,7 @@ class orders extends React.Component {
     API.getMenu()
       .then((res) => {
         console.log({ res });
-        const dat = res.data.data;
+        const dat = res.data.Menu;
         this.setState({ menus: dat });
         console.log("data has been received");
       })
@@ -29,83 +28,71 @@ class orders extends React.Component {
       });
   };
 
-  displaymenus = (posts) => {
-    if (!posts.length) {return null;}
-    return posts.map((order, index) => {
-      const printmenu = { order }.order;
+  displaymenus = (menus) => {
+    if (!menus.length) return null;
+    return menus.map((order, index) => {
+      const menulist = { order }.order;
       return (
         <div>
-          <div className="card">
-            <div className="menuItem" key={index}></div>
-            <div className="menuTitle">{printmenu.menuItemName}</div>
-            <div className="price">${printmenu.price}</div>
-            <div className="menuDescription">{printmenu.ingredients}</div>
-            <p>
-              <button
-                name="btn"
-                key={printmenu._id}
-                onClick={(event) => this.addItem(event, printmenu)}
-              >
-                add
-              </button>
-            </p>
-            {/* <button onClick={()=>this.addItem(printmenu)}>Add</button></p> */}
-          </div>
+          {/* <div className="card"> */}
+          <div className="menuItem" key={index}></div>
+          <div className="menuTitle">{menulist.menuItemName}</div>
+          <div className="price">${menulist.price}</div>
+          <div className="menuDescription">{menulist.ingredients}</div>
+          <p>
+            <button
+              name="btn"
+              key={menulist._id}
+              onClick={(event) => this.addItem(event, menulist)}
+            >
+              add
+            </button>
+          </p>
         </div>
       );
     });
   };
-
-  addItem = (event, items) => {
+  // its add the menu to the card
+  addItem = (event, item) => {
     event.preventDefault();
-    console.log("add", this.state.addtocart);
-    if (!items.length) {return null;}
-    items.map((order, index) => {
-      
-      const printmenu = { order }.order;
-      console.log("xxx", { printmenu });
-     
+    if (!item) return null;
+    console.log("add", this.state.cart);
+    const newcart = [...this.state.cart];
+    newcart.push(item);
+    this.setState({ cart: newcart });
+  };
+  // It displays the customer choosed menu
+  displaychoosedmenu = (items) => {
+    if (!items.length) return null;
+    return items.map((order, index) => {
+      const menulist = { order }.order;
       return (
-        <div>
+      
           <div className="card">
             <div className="menuItem" key={index}></div>
-            <div className="menuTitle">{printmenu.menuItemName}</div>
-            <div className="price">${printmenu.price}</div>
-            <div className="menuDescription">{printmenu.ingredients}</div>
+            <div className="menuTitle">{menulist.menuItemName}</div>
+            <div className="price">${menulist.price}</div>
+            <div className="menuDescription">{menulist.ingredients}</div>
+            <div><button> Remove menu</button>
+            
+            <button> Submit</button>
+            </div>
           </div>
-        </div>
-      );
+          
+       ); 
     });
   };
 
-  // SelectedItem =(addtocart)=>{
-  //   if (!addtocart.length) return null;
-  //   return addtocart.map((order, index) => {
-  //     const printmenu = { order }.order;
-  //     console.log("!",{printmenu})
-  //   return (
-  //       <div>
-  //         <div className="card">
-  //           <div className="menuItem" key={index}></div>
-  //           <div className="menuTitle">{printmenu.menuItemName}</div>
-  //           <div className="price">${printmenu.price}</div>
-  //           <div className="menuDescription">{printmenu.ingredients}</div>
-  //           </div>
-  //       </div>
-  //     );
-  //   });
-  // }
+  // render function
   render() {
     console.log("state:", this.state);
     return (
       <>
-        <React.Fragment>
-          <div>
-            <div className="blog">{this.displaymenus(this.state.menus)}</div>
-          </div>
-          <div className="abdu"> {this.addItem()}</div>
-        </React.Fragment>
-      </>
+        <div>
+          <div className="blog">{this.displaymenus(this.state.menus)}</div>
+        </div>
+        <div className="abdu"> {this.displaychoosedmenu(this.state.cart)}</div>
+        </>
     );
   }
 }
