@@ -7,6 +7,7 @@ const initDb = require("./config/initDb");
 const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
 const menusRouter = require("./routes/menus");
+const ordersRouter = require("./routes/orderDetail");
 const errorMiddleware = require("./routes/errorMiddleware");
 
 const PORT = process.env.PORT || 3001;
@@ -29,7 +30,7 @@ if (process.env.NODE_ENV === "production") {
 
 app.use(authRouter, usersRouter, errorMiddleware);
 app.use(menusRouter);
-
+app.use(ordersRouter);
 // Send all other requests to react app
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

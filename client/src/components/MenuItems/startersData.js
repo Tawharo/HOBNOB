@@ -1,6 +1,6 @@
 
 const startersData = [
-{
+  {
     menuItemName: "Peach & Cucumber Gazpacho",
     type: "starter",
     isSpecial: false,
@@ -11,8 +11,8 @@ const startersData = [
     itemOption: null,
     specialPrice: null,
     customOption: null
-},
-{
+  },
+  {
     menuItemName: "Veggie Spring Rolls (V)",
     type: "starter",
     isSpecial: false,
@@ -23,8 +23,8 @@ const startersData = [
     itemOption: null,
     specialPrice: null,
     customOption: null
-},
-{
+  },
+  {
     menuItemName: "Hobnob Cob (V, GF)",
     type: "starter",
     isSpecial: false,
@@ -35,8 +35,8 @@ const startersData = [
     itemOption: null,
     specialPrice: null,
     customOption: null
-},
-{
+  },
+  {
     menuItemName: "Buffalo Wings (GF)",
     type: "starter",
     isSpecial: false,
@@ -47,8 +47,8 @@ const startersData = [
     itemOption: null,
     specialPrice: null,
     customOption: null
-},
-{
+  },
+  {
     menuItemName: "Steak Wedge Salad (GF)",
     type: "starter",
     isSpecial: false,
@@ -59,8 +59,8 @@ const startersData = [
     itemOption: null,
     specialPrice: null,
     customOption: null
-},
-{
+  },
+  {
     menuItemName: "Strawberry Goat Cheese Salad (V, GF)",
     type: "starter",
     isSpecial: false,
@@ -71,8 +71,8 @@ const startersData = [
     itemOption: null,
     specialPrice: null,
     customOption: null
-},
-{
+  },
+  {
     menuItemName: "Avocado Caprese Salad (V, GF)",
     type: "starter",
     isSpecial: false,
@@ -83,8 +83,8 @@ const startersData = [
     itemOption: null,
     specialPrice: null,
     customOption: null
-},
-{
+  },
+  {
     menuItemName: "Fried Chicken Cobb Salad",
     type: "starter",
     isSpecial: false,
@@ -95,6 +95,6 @@ const startersData = [
     itemOption: null,
     specialPrice: null,
     customOption: null
-}]
+  }];
 
 export default startersData;

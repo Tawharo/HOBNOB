@@ -1,1 +1,1 @@
-export { default } from "./Starters.js"
+export { default } from "./Starters.js";

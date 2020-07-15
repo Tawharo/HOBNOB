@@ -5,6 +5,13 @@ export default {
   getUser: (id) => {
     return axios.get(`/api/user/${id}`);
   },
+
+  // postOrder:(title,body)=>{
+  //   return axios.post("api/order",{menuType:title,menuItemName:body});
+  // },
+  getMenu: () => {
+    return axios.get("api/menu");
+  },
   getRole: (id) => {
     const user = axios.get(`/api/user/${id}`);
     console.log(user);

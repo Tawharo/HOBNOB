@@ -11,6 +11,7 @@ import Admin from "./pages/Admin";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Order from "./components/Order";
 import FrontPage from "./components/FrontPage/FrontPage";
 import Reservation from "./components/Reservation/Reservation";
 import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
@@ -64,13 +65,15 @@ function App() {
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
+              <Order />
             </ProtectedRoute>
             <AdminRoute exact path="/admin">
               <Admin />
             </AdminRoute>
           </Switch>
-          <Footer />
         </div>
+        <Footer />
+        {/* </div> */}
       </Router>
     </AuthProvider>
   );
