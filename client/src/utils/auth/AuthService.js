@@ -7,8 +7,8 @@ export default class AuthService {
   
   constructor(){
     this.state = {
-      role: 'user'
-    }
+      role: "user"
+    };
   }
     login = (email, password) => {
       // Get a token
@@ -23,7 +23,7 @@ export default class AuthService {
           return res;
         });
 
-        return user;
+      return user;
     };
 
     getRole = (id) => {

@@ -5,10 +5,17 @@ export default {
   getUser: (id) => {
     return axios.get(`/api/user/${id}`);
   },
+
+  // postOrder:(title,body)=>{
+  //   return axios.post("api/order",{menuType:title,menuItemName:body});
+  // },
+  // getMenu: () => {
+  //   return axios.get("api/menu");
+  // },
   getRole: (id) => {
-    const user =  axios.get(`/api/user/${id}`);
+    const user = axios.get(`/api/user/${id}`);
     console.log(user);
-    return user.role
+    return user.role;
   },
 
   // sign up a user to our service
@@ -20,15 +27,15 @@ export default {
     });
   },
 
-  // retrieve menu items
-  // getMenu: () => {
+                 // retrieve menu items
+  getMenu: () => {
+    return axios.get("api/menu");
+  },
+  // getMenu: (res) => {
   //   return axios.get("api/menu", {});
   // },
-  getMenu: (res) => {
-    return axios.get("api/menu", {});
-  },
 
-  postOrder: (title, body) => {
-    return axios.post("api/menu", { menuType: title, menuItemName: body });
-  },
+  // postOrder: (title, body) => {
+  //   return axios.post("api/menu", { menuType: title, menuItemName: body });
+  // },
 };

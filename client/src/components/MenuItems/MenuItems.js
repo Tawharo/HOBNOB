@@ -10,15 +10,15 @@ function MenuItems() {
   /* const starters = API.getMenu().then {};
   console.log(starters); */
 
- const menuStarters = startersData.map(starterData => 
- <Starter key={starterData.idAuto} name={starterData.menuItemName} 
-  ingredients={starterData.ingredients} price={starterData.price}/>);
+  const menuStarters = startersData.map(starterData => 
+    <Starter key={starterData.idAuto} name={starterData.menuItemName} 
+      ingredients={starterData.ingredients} price={starterData.price}/>);
   
   return (
     <div>
       { menuStarters }
     </div>
-  )
+  );
 
 }
 

@@ -1,62 +1,68 @@
 const mongoose = require("mongoose");
-const user = require("../models/User");
-const orderDetailSchema = new schema({
+//const user = require("../models/User");
+const Schema = mongoose.Schema;
+
+const orderDetailSchema = new Schema({
   _idUser: {
     type: String,
-    required: true,
+    required: false,
   },
   menuItemName: {
     type: String,
-    required: true,
+    required: false,
   },
   menuType: {
     type: String,
-    required: true,
+    required: false,
   },
   isSpecial: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   image: {
     type: String,
-    required: true,
+    required: false,
   },
   ingredients: {
     type: String,
-    required: true,
+    required: false,
   },
   price: {
-    type: Int16Array,
-    required: true,
+    type: Number,
+    required: false,
   },
   addIngredients: {
     type: String,
-    required: true,
+    required: false,
   },
   specialPrice: {
-    type: Int16Array,
-    required: true,
+    type: Number,
+    required: false,
   },
   removeIngredients: {
     type: String,
-    required: true,
+    required: false,
   },
   quantity: {
-    type: Int16Array,
-    required: true,
+    type: Number,
+    required: false,
   },
   tax: {
-    type: Int16Array,
-    required: true,
+    type: Number,
+    required: false,
   },
   tip: {
-    type: Int16Array,
-    required: true,
+    type: Number,
+    required: false,
   },
   grandTotal: {
-    type: Int16Array,
-    required: true,
+    type: Number,
+    required: false,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
-
-module.exports = orderDetailSchema;
+const Order = mongoose.model("orderDetailSchema", orderDetailSchema);
+module.exports = Order;
