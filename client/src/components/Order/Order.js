@@ -3,16 +3,16 @@ import API from "../../utils/API";
 import "./Order.css";
 import OrderDetail from "./OrderDetail";
 class orders extends React.Component {
-  //  constructor(props){
-  //    super(props)
-  //   }
-  state = {
-    cart: [],
-    menus: [],
-    tax: 0,
-    total: 0,
-  };
+  constructor(props) {
+    super(props);
 
+   this.state = {
+      cart: [],
+      menus: [],
+      tax: 0,
+      total: 0,
+    };
+  }
   componentDidMount = () => {
     this.getMenus();
   };
@@ -34,6 +34,9 @@ class orders extends React.Component {
     return menus.map((order, index) => {
       const menulist = { order }.order;
       return (
+      
+      
+      
         <div>
           {/* <div className="card"> */}
           <div className="menuItem" key={index}></div>
@@ -50,10 +53,13 @@ class orders extends React.Component {
             </button>
           </p>
         </div>
-      );
+       
+        );
+        
     });
-  };
 
+  };
+  
   // its add the menu to the card
   addItem = (event, item) => {
     event.preventDefault();
@@ -65,14 +71,16 @@ class orders extends React.Component {
 
   // It displays the customer choosed menu
   displaychoosedmenu = (items) => {
-    if (!items.length) return null;
+    
+    
     return items.map((order, index) => {
+      if (!items.length) return null;
       const menulist = { order }.order;
       // const price= parseInt(menulist.price)
       const price = menulist.price;
       const menuItemName = menulist.menuItemName;
       const ingredients = menulist.ingredients;
-    return (
+      return (
         <div className="card">
           <div className="menuItem" key={index}></div>
           <div className="menuTitle">{menuItemName}</div>
@@ -87,12 +95,15 @@ class orders extends React.Component {
               type="button"
               id={menulist._id}
               value={menulist._id}
-              onClick={(e) => this.handleRemove(e, menulist._id)}>
+              onClick={(e) => this.handleRemove(e, menulist._id)}
+            >
               Remove menu
             </button>
           </div>
         </div>
+      
       );
+      
     });
   };
 
@@ -104,58 +115,10 @@ class orders extends React.Component {
     this.setState({ cart: newlist });
     console.log(this.state.cart);
   };
-  ///////////order detail by ID /////////////////
-  // getorderdetail = () => {
-  //   API.getorderById()
-  //     .then((res) => {
-  //       console.log({ res });
-  //       const data = res.data.Menu;
-  //       this.setState({ orderDetail: data });
-  //       console.log("data has been received");
-  //     })
-  //     .catch(() => {
-  //       alert("data has not found");
-  //     });
-  // };
+ 
 
-  ///////////////////////post order detail//////////////////////////////////
-  // getorderdetail = () => {
-  // API.postorderById()
-  // .then((res) => {
-  //   console.log({ res });
-  //   const data = res.data.Menu;
-  //   this.setState({ orderDetail: data });
-  //   console.log("data has been received");
-  // })
-  // .catch(() => {
-  //   alert("data has not found");
-  // });
-  // };
-
-  //////////////////////////////order detail diplay
-  displayorderdetail = (items) => {
-    if (!items.length) return null;
-    return items.map((order, index) => {
-      const menulist = { order }.order;
-      // const price= parseInt(menulist.price)
-      const price = menulist.price;
-      const menuItemName = menulist.menuItemName;
-      const ingredients = menulist.ingredients;
-      return (
-        <div className="card">
-          <div className="menuItem" key={index}></div>
-          <div className="menuTitle">{menuItemName}</div>
-          <div className="price">{price}</div>
-          {/* <div className="menuDescription">{ingredients}</div> */}
-          <div>
-            <button> Remove menu</button>
-          </div>
-        </div>
-      );
-    });
-  };
-
-  // render function
+  
+  /////////////// render function
   render() {
     console.log("state:", this.state.cart);
     if (this.state.cart.length === 0) {
@@ -176,7 +139,7 @@ class orders extends React.Component {
         </div>
         <div className="abdu"> {this.displaychoosedmenu(this.state.cart)}</div>
         {/* <div className="abdu"> {this.displayorderdetail(this.state.cart)}</div> */}
-        <OrderDetail />
+        {/* <OrderDetail /> */}
       </>
     );
   }
