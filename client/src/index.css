@@ -1,8 +1,18 @@
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   .container {
     display: flex;
   }
-} */
+
+  .main-container {
+    display: flex;
+    max-width: 1000px;
+    justify-content: center;
+    margin-left: 13%;
+    background-color: blueviolet;
+    flex-direction: column;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -29,33 +39,30 @@ button:active,
 button:focus {
   background-color: rgb(197, 43, 12);
 }
+/* Menu Page */
 
-.menuField {
+.container-menu {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
+  /* justify-content: flex-start; */
 }
 
-.menuGroup {
+.menu-group {
   text-align: center;
   text-transform: uppercase;
   font-weight: 800;
 }
 
-/* .main {
+.menu-field {
   display: flex;
-} */
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
 
 .rock {
   flex: auto;
   flex-wrap: wrap;
   align-items: right;
   justify-content: space-between;
-}
-
-.funny {
-  flex: 2;
-}
-
-.signupLogo {
 }

@@ -18,22 +18,25 @@ function Menu() {
 
   return (
     <>
-      <Logo />
-      {food &&
-        food.length > 0 &&
-        identifyMenuGroups(food).map((menuGroup) => (
-          <>
-            <h4 className="menuGroup">{menuGroup}</h4>
-            <br></br>
-            <div className="menuField">
-              {food
-                .filter((menuItem) => menuItem.type === menuGroup)
-                .map((menuItem) => (
-                  <MenuItem props={menuItem} key={menuItem.menuItemName} />
-                ))}
-            </div>
-          </>
-        ))}
+      <div className="container-menu">
+        <Logo />
+
+        {food &&
+          food.length > 0 &&
+          identifyMenuGroups(food).map((menuGroup) => (
+            <>
+              <h4 className="menu-group">{menuGroup}</h4>
+              <br></br>
+              <div className="menu-field">
+                {food
+                  .filter((menuItem) => menuItem.type === menuGroup)
+                  .map((menuItem) => (
+                    <MenuItem props={menuItem} key={menuItem.menuItemName} />
+                  ))}
+              </div>
+            </>
+          ))}
+      </div>
     </>
   );
 }

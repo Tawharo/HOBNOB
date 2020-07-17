@@ -1,21 +1,25 @@
-.card {
+.menu-card {
   background-color: rgba(245, 245, 245, 0);
-  height: 100px;
-  width: 325px;
-  margin-left: 200px;
+  /* height: 100px; */
+  height: 20vh;
+  width: 400px;
+  margin-left: 95px;
+  /* margin-bottom: 30px; */
   box-shadow: none;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .price {
   float: right;
 }
 
-.menuTitle {
+.menu-title {
   font-size: large;
   font-weight: 600;
   display: inline;
 }
 
-.menuDescription {
+.menu-description {
   width: 270px;
 }

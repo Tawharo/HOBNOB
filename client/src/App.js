@@ -30,47 +30,49 @@ function App() {
       <Router>
         <div>
           <Navbar />
-          <Switch>
-            {
-              <ProtectedRoute exact path="/">
-                <Home />
+          <div className="main-container">
+            <Switch>
+              {
+                <ProtectedRoute exact path="/">
+                  <Home />
+                </ProtectedRoute>
+              }
+              <Route exact path="/login">
+                <Login />
+              </Route>
+              <Route exact path="/frontpage">
+                <FrontPage />
+              </Route>
+              <Route exact path="/signup">
+                <Signup />
+              </Route>
+              <Route exact path="/reservation">
+                <Reservation />
+              </Route>
+              <Route exact path="/joinourteam">
+                <JoinOurTeam />
+              </Route>
+              <Route exact path="/contact">
+                <Contact />
+              </Route>
+              <Route exact path="/menu">
+                <Menu />
+              </Route>
+              <Route exact path="/location">
+                <Location />
+              </Route>
+              <Route exact path="/pickup">
+                <Pickup />
+              </Route>
+              <ProtectedRoute exact path="/profile">
+                <Profile />
+                <Order />
               </ProtectedRoute>
-            }
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/frontpage">
-              <FrontPage />
-            </Route>
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-            <Route exact path="/reservation">
-              <Reservation />
-            </Route>
-            <Route exact path="/joinourteam">
-              <JoinOurTeam />
-            </Route>
-            <Route exact path="/contact">
-              <Contact />
-            </Route>
-            <Route exact path="/menu">
-              <Menu />
-            </Route>
-            <Route exact path="/location">
-              <Location />
-            </Route>
-            <Route exact path="/pickup">
-              <Pickup />
-            </Route>
-            <ProtectedRoute exact path="/profile">
-              <Profile />
-              <Order />
-            </ProtectedRoute>
-            <AdminRoute exact path="/admin">
-              <Admin />
-            </AdminRoute>
-          </Switch>
+              <AdminRoute exact path="/admin">
+                <Admin />
+              </AdminRoute>
+            </Switch>
+          </div>
         </div>
         <Footer />
         {/* </div> */}
