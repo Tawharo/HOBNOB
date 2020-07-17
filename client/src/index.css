@@ -1,4 +1,18 @@
-@import-normalize;
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+  }
+
+  .main-container {
+    display: flex;
+    max-width: 1000px;
+    justify-content: center;
+    margin-left: 13%;
+    background-color: blueviolet;
+    flex-direction: column;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -7,20 +21,48 @@ body {
 }
 
 * {
-  color: #006181;
+  color: white;
 }
 
 button {
   border: none;
   cursor: pointer;
-  background-color: #33ccff;
+  background-color: rgb(225, 70, 45);
   color: white;
   font-size: 1.125rem;
   padding: 0.75rem 1.5rem;
+  border-radius: 5px;
 }
 
 button:hover,
 button:active,
 button:focus {
-  background-color: #01bdfb;
+  background-color: rgb(197, 43, 12);
+}
+/* Menu Page */
+
+.container-menu {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+}
+
+.menu-group {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.menu-field {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.rock {
+  flex: auto;
+  flex-wrap: wrap;
+  align-items: right;
+  justify-content: space-between;
 }
