@@ -1,1 +1,1 @@
-export { default } from './JoinTheTeam';
+export { default } from "./JoinTheTeam";
