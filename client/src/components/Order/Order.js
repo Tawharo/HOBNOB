@@ -1,11 +1,8 @@
 import React from "react";
 import API from "../../utils/API";
-<<<<<<< HEAD
 import "./Order.css";
 import OrderDetail from "./OrderDetail";
 
-=======
->>>>>>> e77ddb2d1542d7fb5bd4cbbc476295631446f0ad
 class orders extends React.Component {
   constructor(props) {
     super(props);
