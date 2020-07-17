@@ -3,11 +3,11 @@ import "./style.css";
 
 function MenuItem(props) {
   return (
-    <div className="card">
-      <div className="menuItem">
-        <div className="menuTitle">{props.props.menuItemName}</div>
+    <div className="menu-card">
+      <div className="menu-item">
+        <div className="menu-title">{props.props.menuItemName}</div>
         <span className="price">{props.props.price}</span>
-        <div className="menuDescription">{props.props.ingredients}</div>
+        <div className="menu-description">{props.props.ingredients}</div>
       </div>
     </div>
   );

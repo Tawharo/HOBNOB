@@ -32,7 +32,7 @@ function Pickup() {
     // const id = "5f048d7df60cf32c3ca97f83";
     API.getMenu()
       .then((res) => {
-        console.log({ res });
+        // console.log({ res });
         const data = res.data.data;
         setFormState({ posts: data });
         console.log("data has been received");
@@ -45,7 +45,7 @@ function Pickup() {
     event.preventDefault();
     API.postOrder(formState.title, formState.body)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => alert(err));
@@ -54,8 +54,8 @@ function Pickup() {
   function displayorder(posts) {
     if (!posts.length) {return null;}
     return posts.map((post, index) => {
-      console.log({ post });
-      console.log({ post }.post.menuType);
+      // console.log({ post });
+      // console.log({ post }.post.menuType);
       const ordermade = { post }.post;
       // const menuStarters = posts.map(post =>
       //  <post key={post.idAuto} name={post.title}
@@ -82,30 +82,32 @@ function Pickup() {
   }
   return (
     <>
-      <h1>Hello Order</h1>
-      <form onSubmit={submit}>
-        <div>
-          <input
-            type="text"
-            name="title"
-            placeholder="title"
-            //value={this.state.tile}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="from-input">
-          <textarea
-            placeholder="text"
-            name="body"
-            cols="30"
-            row="10"
-            //value={this.state.body}
-            onChange={handleChange}
-          ></textarea>
-          <br />
-        </div>
-        <button>Submit</button>
-      </form>
+      <Logo />
+      <div>
+        <form className="form" onSubmit={submit}>
+          <div className="rock">
+            <input
+              type="text"
+              name="title"
+              placeholder="title"
+              //value={this.state.tile}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="from-input" className="rock">
+            <textarea
+              placeholder="text"
+              name="body"
+              cols="30"
+              row="10"
+              //value={this.state.body}
+              onChange={handleChange}
+            ></textarea>
+            <br />
+          </div>
+          <button className="funny">Submit</button>
+        </form>
+      </div>
       <div className="blog">{displayorder(formState.posts)}</div>
     </>
   );
