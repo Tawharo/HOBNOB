@@ -1,10 +1,16 @@
 import React from "react";
 import API from "../../utils/API";
+<<<<<<< HEAD
+import "./Order.css";
+import OrderDetail from "./OrderDetail";
+
+=======
+>>>>>>> e77ddb2d1542d7fb5bd4cbbc476295631446f0ad
 class orders extends React.Component {
   constructor(props) {
     super(props);
 
-   this.state = {
+    this.state = {
       cart: [],
       menus: [],
       tax: 0,
@@ -32,14 +38,11 @@ class orders extends React.Component {
     return menus.map((order, index) => {
       const menulist = { order }.order;
       return (
-      
-      
-      
         <div>
           {/* <div className="card"> */}
           <div className="menuItem" key={index}></div>
           <div className="menuTitle">{menulist.menuItemName}</div>
-          <div className="price">${menulist.price}</div>
+          <div className="price">{menulist.price}</div>
           <div className="menuDescription">{menulist.ingredients}</div>
           <p>
             <button
@@ -51,13 +54,10 @@ class orders extends React.Component {
             </button>
           </p>
         </div>
-       
-        );
-        
+      );
     });
-
   };
-  
+
   // its add the menu to the card
   addItem = (event, item) => {
     event.preventDefault();
@@ -65,12 +65,45 @@ class orders extends React.Component {
     const newcart = [...this.state.cart];
     newcart.push(item);
     this.setState({ cart: newcart });
+    console.log(this.state.cart);
+    // displayCartandTotal(this.state.cart)
   };
+  // displayCartandTotal =(cart)=>{
+  //   if (!cart.length) return null;
+  //   return cart.map(item)
+
+  // }
+
+  findValue = (menuItemId) => {
+    // Find the menu Item in the cart
+    // Return the correct qty
+    let found = this.state.cart.find((cartItem)=>cartItem._id == menuItemId)
+    let qty = found.qty && found.qty >= 0 ? found.qty : 1;
+    return qty;
+  }
+
+  updateQuantity = (e, item) => {
+    // in state you have a cart
+    // the cart has individual items
+    // we need to know for each item, is their more than one?
+    // if we adjust the quantity we need to update the state of that indivual item to reflect the new qty
+    // state= { cart: [item]}
+      // item: price, id, NEW qty
+
+    console.log('===========')
+    console.log({e, item});
+    console.log('===========')
+
+    let qty = e.target.value;
+    item["qty"] = qty;
+    console.log({item});
+    let cart = this.state.cart.map((orderItem)=> orderItem._id === item._id ? item : orderItem);
+    this.setState({cart})
+     
+  }
 
   // It displays the customer choosed menu
   displaychoosedmenu = (items) => {
-    
-    
     return items.map((order, index) => {
       if (!items.length) return null;
       const menulist = { order }.order;
@@ -86,7 +119,9 @@ class orders extends React.Component {
           {/* <div className="menuDescription">{ingredients}</div> */}
           <div>
             <label name="Qty">Quantity</label>
-            <input type="number" />
+            <input value={this.findValue(menulist._id)} onChange={(e) => {
+              console.log({menulist})
+              this.updateQuantity(e, menulist)}} type="number" />
           </div>
           <div>
             <button
@@ -99,9 +134,7 @@ class orders extends React.Component {
             </button>
           </div>
         </div>
-      
       );
-      
     });
   };
 
@@ -113,9 +146,7 @@ class orders extends React.Component {
     this.setState({ cart: newlist });
     console.log(this.state.cart);
   };
- 
 
-  
   /////////////// render function
   render() {
     console.log("state:", this.state.cart);
@@ -137,9 +168,36 @@ class orders extends React.Component {
         </div>
         <div className="abdu"> {this.displaychoosedmenu(this.state.cart)}</div>
         {/* <div className="abdu"> {this.displayorderdetail(this.state.cart)}</div> */}
-        {/* <OrderDetail /> */}
+        <OrderDetail cart={this.state.cart}/>
       </>
     );
   }
 }
 export default orders;
+///////////order detail by ID /////////////////
+  // getorderdetail = () => {
+  //   API.getorderById()
+  //     .then((res) => {
+  //       console.log({ res });
+  //       const data = res.data.Menu;
+  //       this.setState({ orderDetail: data });
+  //       console.log("data has been received");
+  //     })
+  //     .catch(() => {
+  //       alert("data has not found");
+  //     });
+  // };
+
+  ///////////////////////post order detail//////////////////////////////////
+  // getorderdetail = () => {
+  // API.postorderById()
+  // .then((res) => {
+  //   console.log({ res });
+  //   const data = res.data.Menu;
+  //   this.setState({ orderDetail: data });
+  //   console.log("data has been received");
+  // })
+  // .catch(() => {
+  //   alert("data has not found");
+  // });
+  // };
