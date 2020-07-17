@@ -14,17 +14,18 @@ function Location() {
         mighty menu available for curbside pick-up daily from 3:30-7:30pm so
         that you can enjoy HOBNOB AT HOME. Click our MENU tab to learn more.
       </p>
-
-      <SimpleMap />
+      <map class="container mx-auto">
+        <SimpleMap />
+      </map>
       <Marker />
       <div className="row">
-        <div className="col m3">
+        <div className="col-3">
           <p>
             <strong>Location</strong>
           </p>
           <p>6010 Hermitage Rd. Richmond, VA 23228</p>
         </div>
-        <div className="col m3">
+        <div className="col-3">
           <p>
             <strong>Hours</strong>
           </p>
@@ -32,7 +33,7 @@ function Location() {
             Tue–Fri: 11am–11pm Saturday: 5pm-11pm Sunday: 9am-3pm Monday: Closed
           </p>
         </div>
-        <div className="col m3">
+        <div className="col-3">
           <p>
             <strong>Parking</strong>
           </p>

@@ -40,7 +40,7 @@ export default {
   //   return axios.get("api/menu", {});
   // },
 
-  postOrder: (title, body) => {
-    return axios.post("api/menu", { menuType: title, menuItemName: body });
-  },
+  // postOrder: (title, body) => {
+  //   return axios.post("api/menu", { menuType: title, menuItemName: body });
+  // },
 };
