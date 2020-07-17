@@ -7,8 +7,8 @@ export default class AuthService {
   
   constructor(){
     this.state = {
-      role: 'user'
-    }
+      role: "user"
+    };
   }
     login = (email, password) => {
       // Get a token
@@ -23,13 +23,11 @@ export default class AuthService {
           return res;
         });
 
-        return user;
+      return user;
     };
 
-    getRole = (id) => {
-      return this.state.role;
+    getRole = (id) => this.state.role;
       
-    }
     getProfile = () => {
       return decode(this.getToken());
     };
@@ -62,6 +60,7 @@ export default class AuthService {
 
     getToken() {
       // Retrieves the user token from localStorage
+      console.log(localStorage.getItem("id_token"));
       return localStorage.getItem("id_token");
     }
 

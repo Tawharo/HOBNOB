@@ -1,8 +1,6 @@
 const express = require("express");
 const db = require("../models");
-
 //const isAuthenticated = require("../config/isAuthenticated");
-
 const router = express.Router();
 //////////////////////get menu /////////////////////////////
 router.get("/api/menu", (req, res) => {
@@ -15,14 +13,15 @@ router.get("/api/menu", (req, res) => {
       console.log("api menu called - no data");
       return res.status(404).json({ success: false, message: "No user found" });
     }
-    console.log(data);
-    return res.status(200).json({ success: true, Menu:data });
+    // return res.status(200).json({ success: true, data });
+    // // console.log(data);
+    return res.status(200).json({ success: true, Menu: data });
   }).catch((err) => res.status(400).send(err));
 });
-
+// })
 ////////////////////get by id ///////////////////////
-router.get("/api/menu/:id", (req, res) => {
-  db.Menu.findById(req.params.id)
+router.get("/api/menu/:type", (req, res) => {
+  db.Menu.findById(req.params.type)
     .then((data) => {
       if (data) {
         res.json(data);
@@ -68,7 +67,7 @@ router.put("/api/menu/:id", (req, res) => {
 /////////////////////////delete by Id/////////////////////////////////
 router.delete("/api/menu/:id", (req, res) => {
   const id = req.params.id;
-  db.Menu.findOneAndDelete(id)
+  db.Menu.findOneAndRemove(id)
     .then((data) => {
       if (!data) {
         res.status(404).send({ message: "Menu id not found" });
@@ -81,17 +80,19 @@ router.delete("/api/menu/:id", (req, res) => {
     });
 });
 /////////////////////// find by menu type//////////////////////////
-// router.get("api/menu/type", (req, res)=>{
-//   const t = req.query.type;
-//   let condition=type ? {"type":{$regex: new RegExp(t),$options:"i"}}:{};
-//   db.Menu.find(condition)
-//   .then((data =>{
-//     res.send(data)
-//   })
-//   .catch(err =>{
-//      res.status(500).send({
-//        message:"Can not retriveing menu by type"});
-//   })
-// })
+router.get("api/menu/type", (req, res) => {
+  const ty = req.param.type;
+  db.Menu.find({ type: { $eq: ty } })
+    .then((data) => {
+      if (!data) {
+        res.status(404).send({ message: "Menu type not found" });
+      } else {
+        res.json(data);
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({ message: "Can not retriveing menu by type" });
+    });
+});
 
 module.exports = router;
