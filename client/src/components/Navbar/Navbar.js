@@ -9,26 +9,8 @@ function Navbar() {
   const { isLoggedIn, logout, role} = useAuth();
   const links = [<BrandLink key="/" to="/" />];
 
-  if (isLoggedIn) {
-    links.push(
-      <NavLink key="profile" className="nav-item" to="/profile">
-        Profile
-      </NavLink>
-    );
-    if(role === "admin") {
-      links.push(
-        <NavLink key="admin" className="nav-item" to="/admin">
-          Admin
-        </NavLink>
-      );
-    }
-   
-    links.push(
-      <span key="lougout" className="nav-item" onClick={logout}>
-        Logout
-      </span>
-    );
-  } else {
+ 
+  if(!isLoggedIn) {
     links.push(
       <NavLink key="signup" className="nav-item" to="/signup">
         Sign Up
@@ -39,6 +21,7 @@ function Navbar() {
         Login
       </NavLink>
     );
+  }
     links.push(
       <NavLink key="frontpage" className="nav-item" to="/frontpage">
         Home
@@ -74,7 +57,28 @@ function Navbar() {
         Pickup
       </NavLink>
     );
-  }
+    if (isLoggedIn) {
+      links.push(
+        <NavLink key="profile" className="nav-item" to="/profile">
+          Profile
+        </NavLink>
+      );
+      console.log("admin TAB", role)
+      if(role === "admin") {
+        links.push(
+          <NavLink key="admin" className="nav-item" to="/admin">
+            Admin
+          </NavLink>
+        );
+      }
+     
+      links.push(
+        <span key="lougout" className="nav-item" onClick={logout}>
+          Logout
+        </span>
+      );
+    } 
+  
 
   return <nav className="Navbar">{links}</nav>;
 }

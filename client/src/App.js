@@ -5,23 +5,22 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
+import Navbar from "./components/Navbar";
+import FrontPage from "./components/FrontPage/FrontPage";
+import Reservation from "./components/Reservation/Reservation";
+import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer";
+import Location from "./components/Location/Location";
+// import MenuComp from "./components/Menu";
+
+// our pages
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
-import Order from "./components/Order";
-import FrontPage from "./components/FrontPage/FrontPage";
-import Reservation from "./components/Reservation/Reservation";
-import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
-import Contact from "./components/Contact/Contact";
-import MenuItems from "./components/MenuItems";
-// import Menu from "./components/Menu"
-import Starters from "./components/Starters";
 import Menu from "./pages/Menu";
-import Footer from "./components/Footer";
-import Location from "./components/Location/Location";
 import Pickup from "./pages/Pickup";
 
 function App() {
@@ -65,7 +64,6 @@ function App() {
             </Route>
             <ProtectedRoute exact path="/profile">
               <Profile />
-              <Order />
             </ProtectedRoute>
             <AdminRoute exact path="/admin">
               <Admin />
@@ -73,7 +71,6 @@ function App() {
           </Switch>
         </div>
         <Footer />
-        {/* </div> */}
       </Router>
     </AuthProvider>
   );

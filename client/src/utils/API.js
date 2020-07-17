@@ -28,12 +28,9 @@ export default {
   },
 
                  // retrieve menu items
-  getMenu: () => {
-    return axios.get("api/menu");
-  },
-  // getMenu: (res) => {
-  //   return axios.get("api/menu", {});
-  // },
+  getMenu: (res) => {
+    return axios.get("api/menu", {});
+   },
 
   // postOrder: (title, body) => {
   //   return axios.post("api/menu", { menuType: title, menuItemName: body });
