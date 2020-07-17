@@ -8,7 +8,7 @@ function Contact() {
       <Logo />
 
       <div class="row">
-        <div class="col m4">
+        <div class="col-4">
           <h4>Contact Us</h4>
           <p>
             Looking for a cozy space to host your next celebration or corporate
@@ -17,7 +17,7 @@ function Contact() {
           </p>
         </div>
         <div class="row">
-          <form class="col m8">
+          <form class="col-8">
             <div class="row">
               <div class="input-field col m4">
                 <input
@@ -28,25 +28,25 @@ function Contact() {
                 />
                 <label for="first_name">First Name</label>
               </div>
-              <div class="input-field col m4">
+              <div class="input-field col-4">
                 <input id="last_name" type="text" class="validate" />
                 <label for="last_name">Last Name</label>
               </div>
             </div>
             <div class="row">
-              <div class="input-field col m4">
+              <div class="input-field col-4">
                 <input id="email" type="email" class="validate" />
                 <label for="email">Email</label>
               </div>
             </div>
             <div class="row">
-              <div class="input-field col m4">
+              <div class="input-field col-4">
                 <input id="subject" type="text" class="validate" />
                 <label for="subject">Subject</label>
               </div>
             </div>
             <div class="row">
-              <form class="col m10">
+              <form class="col-10">
                 <div class="row">
                   <div class="input-field col s12">
                     <textarea

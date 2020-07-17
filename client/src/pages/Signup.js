@@ -3,6 +3,7 @@ import { Link, Redirect, useHistory } from "react-router-dom";
 import API from "./../utils/API";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
+import Logo from "../components/Logo";
 
 const signupStyles = {
   maxWidth: "20rem",
@@ -47,45 +48,48 @@ function Signup() {
   };
 
   return (
-    <div style={signupStyles} className="Signup">
-      <h1>Signup</h1>
-      <Form onSubmit={handleFormSubmit}>
-        <InputGroup
-          id="username"
-          labelText="Username"
-          placeholder="WinterIsComing"
-          name="username"
-          type="text"
-          onChange={handleChange}
-        />
-        <InputGroup
-          id="email"
-          labelText="Email"
-          placeholder="jon.snow@email.com"
-          name="email"
-          type="email"
-          onChange={handleChange}
-        />
-        <InputGroup
-          id="pwd"
-          labelText="Password"
-          placeholder="p@ssw0Rd!"
-          name="password"
-          type="password"
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
-      </Form>
-      <Link
-        style={{
-          marginTop: "1.5rem",
-          textAlign: "center",
-        }}
-        to="/login"
-      >
-        Go to Login
-      </Link>
-    </div>
+    <>
+      <Logo />
+      <div style={signupStyles} className="Signup">
+        <h1 className="signupLogo">Sign up to place your order.</h1>
+        <Form onSubmit={handleFormSubmit}>
+          <InputGroup
+            id="username"
+            labelText="Username"
+            placeholder="WinterIsComing"
+            name="username"
+            type="text"
+            onChange={handleChange}
+          />
+          <InputGroup
+            id="email"
+            labelText="Email"
+            placeholder="jon.snow@email.com"
+            name="email"
+            type="email"
+            onChange={handleChange}
+          />
+          <InputGroup
+            id="pwd"
+            labelText="Password"
+            placeholder="p@ssw0Rd!"
+            name="password"
+            type="password"
+            onChange={handleChange}
+          />
+          <button type="submit">Submit</button>
+        </Form>
+        <Link
+          style={{
+            marginTop: "1.5rem",
+            textAlign: "center",
+          }}
+          to="/login"
+        >
+          Go to Login
+        </Link>
+      </div>
+    </>
   );
 }
 
