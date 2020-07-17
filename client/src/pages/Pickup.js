@@ -52,7 +52,7 @@ function Pickup() {
     getOrderPost();
   };
   function displayorder(posts) {
-    if (!posts.length) return null;
+    if (!posts.length) {return null;}
     return posts.map((post, index) => {
       console.log({ post });
       console.log({ post }.post.menuType);

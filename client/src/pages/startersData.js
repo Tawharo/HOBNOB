@@ -129,6 +129,6 @@ const startersData = [
     "specialPrice": null,
     "customOption": null
   }
-]
+];
 
 export default startersData;

@@ -6,7 +6,7 @@ const menuSchema = new Schema({
     type: String,
     required: true,
   },
-  type: {
+  MenuType: {
     type: String,
     required: true,
   },
@@ -37,10 +37,10 @@ const menuSchema = new Schema({
     type: String,
     required: false,
   },
-  // createdAt: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Menu = mongoose.model("menu", menuSchema);
