@@ -1,0 +1,9 @@
+.container-location {
+    display: flex;
+    margin-top: 50px;
+}
+
+.container-location .row {
+    align-items: flex-start;
+
+}
