@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Our Components
 import { AuthProvider } from "./utils/auth";
@@ -12,7 +13,7 @@ import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer";
 import Location from "./components/Location/Location";
-// import MenuComp from "./components/Menu";
+
 
 // our pages
 import Login from "./pages/Login";
@@ -22,7 +23,6 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Pickup from "./pages/Pickup";
-// import Order from "./components/Order";
 
 function App() {
   return (
@@ -66,7 +66,6 @@ function App() {
               </Route>
               <ProtectedRoute exact path="/profile">
                 <Profile />
-                {/* <Order /> */}
               </ProtectedRoute>
               <AdminRoute exact path="/admin">
                 <Admin />
