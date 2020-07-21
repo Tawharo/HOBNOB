@@ -22,7 +22,7 @@ import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Pickup from "./pages/Pickup";
-// import Order from "./components/Order";
+import Order from "./components/Order";
 
 function App() {
   return (
@@ -66,7 +66,7 @@ function App() {
               </Route>
               <ProtectedRoute exact path="/profile">
                 <Profile />
-                {/* <Order /> */}
+                <Order />
               </ProtectedRoute>
               <AdminRoute exact path="/admin">
                 <Admin />

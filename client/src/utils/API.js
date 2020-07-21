@@ -13,7 +13,7 @@ export default {
   //   return axios.get("api/menu");
   // },
   getRole: (id) => {
-    const user = axios.get(`/api/user/${id}`);
+    const user = axios.get(`api/user/${id}`);
     console.log(user);
     return user.role;
   },
@@ -39,8 +39,10 @@ export default {
   // getMenu: (res) => {
   //   return axios.get("api/menu", {});
   // },
-
-  // postOrder: (title, body) => {
-  //   return axios.post("api/menu", { menuType: title, menuItemName: body });
-  // },
+  getorderById: (id) => {
+    return axios.get(`/api/orderdetail/${id}`);
+  },
+  postOrder: (cart,tax,total) => {
+    return axios.post("api/menu", { menuType: cart.title, price: cart.price,tax:tax,total:total });
+  },
 };

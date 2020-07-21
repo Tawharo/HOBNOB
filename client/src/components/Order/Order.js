@@ -1,11 +1,8 @@
 import React from "react";
 import API from "../../utils/API";
-<<<<<<< HEAD
 import "./Order.css";
 import OrderDetail from "./OrderDetail";
 
-=======
->>>>>>> e77ddb2d1542d7fb5bd4cbbc476295631446f0ad
 class orders extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +12,10 @@ class orders extends React.Component {
       menus: [],
       tax: 0,
       total: 0,
+      
+      // showorderDetial: false,
     };
+    // this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount = () => {
     this.getMenus();
@@ -48,7 +48,7 @@ class orders extends React.Component {
             <button
               name="btn"
               key={menulist._id}
-              onClick={(event) => this.addItem(event, menulist)}
+              onClick={(event) => this.addItem(event, menulist) }
             >
               add
             </button>
@@ -61,26 +61,48 @@ class orders extends React.Component {
   // its add the menu to the card
   addItem = (event, item) => {
     event.preventDefault();
+    let alreadyIncart = false;
     if (!item) return null;
-    const newcart = [...this.state.cart];
-    newcart.push(item);
-    this.setState({ cart: newcart });
-    console.log(this.state.cart);
-    // displayCartandTotal(this.state.cart)
-  };
-  // displayCartandTotal =(cart)=>{
-  //   if (!cart.length) return null;
-  //   return cart.map(item)
+    if (this.state.cart.length > 0) {
+      // this.state.cart = this.state.cart.map((cartItem) => {
+      
+      this.state.cart.reduce((a,b) => {
 
-  // }
+     this.setState({total: a.price + b.price})
+        //  console.log(cartItem._id);
+        // if (cartItem._id === item._id) {
+        //   alert("Its already choosed");
+        //   alreadyIncart = true;
+        // }
+        // return cartItem;
+      });
+    }
+    if (!alreadyIncart) {
+      let price = item.price.substr(1);
+      const newcart = [...this.state.cart];
+      newcart.push(item);
+      this.setState({total:item.price})
+      this.setState({ cart: newcart });
+      this.setState({tax:price * 0.06})
+      this.setState({total:item.price})
+      console.log(this.state.cart);
+      // return <OrderDetail key={this.state.cart} cart={this.state.cart} />;
+      // this.updateQuantity(event,newcart)
+
+    }
+   
+  };
+
+  //////////////////
 
   findValue = (menuItemId) => {
     // Find the menu Item in the cart
     // Return the correct qty
-    let found = this.state.cart.find((cartItem)=>cartItem._id == menuItemId)
+    let found = this.state.cart.find((cartItem) => cartItem._id == menuItemId);
     let qty = found.qty && found.qty >= 0 ? found.qty : 1;
+    console.log("qty", qty);
     return qty;
-  }
+  };
 
   updateQuantity = (e, item) => {
     // in state you have a cart
@@ -88,21 +110,87 @@ class orders extends React.Component {
     // we need to know for each item, is their more than one?
     // if we adjust the quantity we need to update the state of that indivual item to reflect the new qty
     // state= { cart: [item]}
-      // item: price, id, NEW qty
-
-    console.log('===========')
-    console.log({e, item});
-    console.log('===========')
+    // item: price, id, NEW qty
+    e.preventDefault();
+    console.log("===========");
+    console.log({ e, item });
+    console.log("===========");
 
     let qty = e.target.value;
     item["qty"] = qty;
-    console.log({item});
-    let cart = this.state.cart.map((orderItem)=> orderItem._id === item._id ? item : orderItem);
-    this.setState({cart})
-     
-  }
+    console.log({ item });
+    let cart = this.state.cart.map((orderItem) =>
+      orderItem._id === item._id ? item : orderItem
+    );
+    this.setState({ cart });
+    // return <OrderDetail key={this.state.cart} cart={this.state.cart} />;
+    // return <OrderDetail key={this.state.cart} />;
+    this.result(cart)
+  };
+////////////////////.................results........................../////////////////////////////
 
-  // It displays the customer choosed menu
+  result=()=>{
+    console.log(this.state.cart);
+    const order = this.state.cart.reduce(
+      (acc, item) => {
+        console.log("od", { item });
+        let total = item.price.substr(1);
+        total = Number(total);
+        acc.total += total * (item.qty || 1);
+        console.log("q++", acc.total);
+        return acc;
+      },
+      { total: 0 }
+    );
+    order.tax = order.total > 0 ? order.total * 0.06 : 0;
+    this.setState({ tax: order.tax, total: order.total });
+    
+  };
+  
+  handleOrderDetails = (cart) => {
+    return (
+      <>
+        <label className="tax">Tax</label>
+        <h3>{this.state.tax}</h3>
+        <label className="total">total</label>
+        <h2>{this.state.total}</h2>
+        <button name="btns" onClick={(e)=>this.postOrderDetail(this.state.cart,this.state.tax,this.state.total)}>submit</button>
+      
+      </>
+    
+    );
+   
+  };
+
+  ///////////////////////post order detail//////////////////////////////////
+postOrderDetail = (cartItem,tax,total) => {
+API.postOrder(cartItem,tax,total)
+.then((res) => {
+  console.log({ res });
+  //  cartItem.price;
+  this.setState({tax:this.state.tax });
+  this.setState({total:this.state.total });
+  console.log("data has been received");
+this.getorderdetail(cartItem._id);
+})
+.catch(() => {
+  alert("data has not found");
+});
+
+};
+
+/////////order detail by ID /////////////////
+getorderdetail = (id) => {
+  API.getorderById(id)
+    .then((res) => {
+      console.log({res})
+      console.log("data has been received");
+    })
+    .catch(() => {
+      alert("data has not found");
+    });
+};
+  ////////////////////////////////////////// It displays the customer choosed menu
   displaychoosedmenu = (items) => {
     return items.map((order, index) => {
       if (!items.length) return null;
@@ -119,9 +207,14 @@ class orders extends React.Component {
           {/* <div className="menuDescription">{ingredients}</div> */}
           <div>
             <label name="Qty">Quantity</label>
-            <input value={this.findValue(menulist._id)} onChange={(e) => {
-              console.log({menulist})
-              this.updateQuantity(e, menulist)}} type="number" />
+            <input
+              value={this.findValue(menulist._id)}
+              onChange={(e) => {
+                console.log({ menulist });
+                this.updateQuantity(e, menulist);
+              }}
+              type="number"
+            />
           </div>
           <div>
             <button
@@ -156,8 +249,6 @@ class orders extends React.Component {
           <div>
             <div className="blog">{this.displaymenus(this.state.menus)}</div>
           </div>
-          <div className="abdu">{this.displaychoosedmenu(this.state.cart)}</div>
-          {/* <div className="abdu">{this.displayorderdetail(this.state.cart)}</div> */}
         </>
       );
     }
@@ -166,38 +257,17 @@ class orders extends React.Component {
         <div>
           <div className="blog">{this.displaymenus(this.state.menus)}</div>
         </div>
-        <div className="abdu"> {this.displaychoosedmenu(this.state.cart)}</div>
-        {/* <div className="abdu"> {this.displayorderdetail(this.state.cart)}</div> */}
-        <OrderDetail cart={this.state.cart}/>
+        <div className="display"> {this.displaychoosedmenu(this.state.cart)}</div>
+
+        {/* <Button onClick={this.handleClick} label="Action">add</Button>
+        {this.getComponent}  // call the method to render the modal here. */}
+         <div className="result"> {this.handleOrderDetails(this.state.cart)}</div> 
+        {/* <OrderDetail cart={this.state.cart} /> */}
       </>
     );
   }
 }
 export default orders;
-///////////order detail by ID /////////////////
-  // getorderdetail = () => {
-  //   API.getorderById()
-  //     .then((res) => {
-  //       console.log({ res });
-  //       const data = res.data.Menu;
-  //       this.setState({ orderDetail: data });
-  //       console.log("data has been received");
-  //     })
-  //     .catch(() => {
-  //       alert("data has not found");
-  //     });
-  // };
 
-  ///////////////////////post order detail//////////////////////////////////
-  // getorderdetail = () => {
-  // API.postorderById()
-  // .then((res) => {
-  //   console.log({ res });
-  //   const data = res.data.Menu;
-  //   this.setState({ orderDetail: data });
-  //   console.log("data has been received");
-  // })
-  // .catch(() => {
-  //   alert("data has not found");
-  // });
-  // };
+
+
