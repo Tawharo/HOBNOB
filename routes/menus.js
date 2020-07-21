@@ -95,4 +95,5 @@ router.get("api/menu/type", (req, res) => {
     });
 });
 
+
 module.exports = router;

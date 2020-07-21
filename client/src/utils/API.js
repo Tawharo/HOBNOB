@@ -32,6 +32,11 @@ export default {
     return axios.get("api/menu", {});
   },
 
+  // add menu item 
+  addMenuItem: () => {
+    return axios.put("api/menu/:id", {});
+  },
+
   // getMenu: (res) => {
   //   return axios.get("api/menu", {});
   //   return axios.get("api/menu");
