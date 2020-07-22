@@ -15,46 +15,46 @@ const orderDetailSchema = new Schema({
     type: String,
     required: false,
   },
-  isSpecial: {
-    type: Boolean,
-    required: false,
-  },
-  image: {
-    type: String,
-    required: false,
-  },
-  ingredients: {
-    type: String,
-    required: false,
-  },
+  // isSpecial: {
+  //   type: Boolean,
+  //   required: false,
+  // },
+  // image: {
+  //   type: String,
+  //   required: false,
+  // },
+  // ingredients: {
+  //   type: String,
+  //   required: false,
+  // },
   price: {
-    type: Number,
-    required: false,
-  },
-  addIngredients: {
     type: String,
     required: false,
   },
-  specialPrice: {
-    type: Number,
-    required: false,
-  },
-  removeIngredients: {
-    type: String,
-    required: false,
-  },
-  quantity: {
-    type: Number,
-    required: false,
-  },
+  // addIngredients: {
+  //   type: String,
+  //   required: false,
+  // },
+  // specialPrice: {
+  //   type: Number,
+  //   required: false,
+  // },
+  // removeIngredients: {
+  //   type: String,
+  //   required: false,
+  // },
+  // quantity: {
+  //   type: Number,
+  //   required: false,
+  // },
   tax: {
     type: Number,
     required: false,
   },
-  tip: {
-    type: Number,
-    required: false,
-  },
+  // tip: {
+  //   type: Number,
+  //   required: false,
+  // },
   grandTotal: {
     type: Number,
     required: false,

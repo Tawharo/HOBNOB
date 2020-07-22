@@ -10,9 +10,10 @@ class orders extends React.Component {
     this.state = {
       cart: [],
       menus: [],
-      tax: 0,
-      total: 0,
-      
+      tax: 0.06,
+      itemtotal:0,
+      taxes:0,
+      grandtotal: 0,
       // showorderDetial: false,
     };
     // this.handleClick = this.handleClick.bind(this);
@@ -48,7 +49,7 @@ class orders extends React.Component {
             <button
               name="btn"
               key={menulist._id}
-              onClick={(event) => this.addItem(event, menulist) }
+              onClick={(event) => this.addItem(event, menulist)}
             >
               add
             </button>
@@ -64,33 +65,33 @@ class orders extends React.Component {
     let alreadyIncart = false;
     if (!item) return null;
     if (this.state.cart.length > 0) {
-      // this.state.cart = this.state.cart.map((cartItem) => {
-      
-      this.state.cart.reduce((a,b) => {
-
-     this.setState({total: a.price + b.price})
-        //  console.log(cartItem._id);
-        // if (cartItem._id === item._id) {
-        //   alert("Its already choosed");
-        //   alreadyIncart = true;
-        // }
-        // return cartItem;
+      this.state.cart = this.state.cart.map((cartItem) => {
+        console.log(cartItem._id);
+        if (cartItem._id === item._id) {
+          alert("Its already choosed");
+          alreadyIncart = true;
+        }
+        return cartItem;
       });
     }
     if (!alreadyIncart) {
-      let price = item.price.substr(1);
+      let price = parseInt(item.price.substr(1));
+     let total=this.state.itemtotal;
       const newcart = [...this.state.cart];
       newcart.push(item);
-      this.setState({total:item.price})
+      // this.setState({ total: item.price });
+      // roundtax = this.state.itemtotal > 0 ? (price * 0.06 )+this.state.itemtotal: 0;
       this.setState({ cart: newcart });
-      this.setState({tax:price * 0.06})
-      this.setState({total:item.price})
+      total=price+this.state.grandtotal
+      let t=this.state.tax*total
+      this.state.taxes=t;
+      this.setState({ grandtotal: t + total});
+      this.setState({itemtotal:total})
+      this.setState({taxes:t})
       console.log(this.state.cart);
       // return <OrderDetail key={this.state.cart} cart={this.state.cart} />;
       // this.updateQuantity(event,newcart)
-
     }
-   
   };
 
   //////////////////
@@ -112,10 +113,6 @@ class orders extends React.Component {
     // state= { cart: [item]}
     // item: price, id, NEW qty
     e.preventDefault();
-    console.log("===========");
-    console.log({ e, item });
-    console.log("===========");
-
     let qty = e.target.value;
     item["qty"] = qty;
     console.log({ item });
@@ -123,13 +120,11 @@ class orders extends React.Component {
       orderItem._id === item._id ? item : orderItem
     );
     this.setState({ cart });
-    // return <OrderDetail key={this.state.cart} cart={this.state.cart} />;
-    // return <OrderDetail key={this.state.cart} />;
-    this.result(cart)
+    this.result(cart);
   };
-////////////////////.................results........................../////////////////////////////
+  ////////////////////.................results........................../////////////////////////////
 
-  result=()=>{
+  result = () => {
     console.log(this.state.cart);
     const order = this.state.cart.reduce(
       (acc, item) => {
@@ -142,54 +137,38 @@ class orders extends React.Component {
       },
       { total: 0 }
     );
-    order.tax = order.total > 0 ? order.total * 0.06 : 0;
-    this.setState({ tax: order.tax, total: order.total });
-    
+    order.tax = order.itemtotal > 0 ? order.itemtotal * 0.06 : 0;
+    this.setState({ tax: order.tax, grandtotal: order.itemtotal });
   };
-  
-  handleOrderDetails = (cart) => {
+
+  handleOrderDetails = () => {
     return (
       <>
         <label className="tax">Tax</label>
-        <h3>{this.state.tax}</h3>
-        <label className="total">total</label>
-        <h2>{this.state.total}</h2>
-        <button name="btns" onClick={(e)=>this.postOrderDetail(this.state.cart,this.state.tax,this.state.total)}>submit</button>
-      
+        <h3>{this.state.taxes}</h3>
+        <label className="itemtotal">itemtotal</label>
+        <h2>{this.state.itemtotal}</h2>
+        <label className="Gtotal">Grandtotal</label>
+        <h2>{this.state.grandtotal}</h2>
+        <button name="btns" onClick={()=>this.postOrderDetail(this.state.cart)}>submit</button>
       </>
-    
     );
-   
   };
 
   ///////////////////////post order detail//////////////////////////////////
-postOrderDetail = (cartItem,tax,total) => {
-API.postOrder(cartItem,tax,total)
-.then((res) => {
-  console.log({ res });
-  //  cartItem.price;
-  this.setState({tax:this.state.tax });
-  this.setState({total:this.state.total });
-  console.log("data has been received");
-this.getorderdetail(cartItem._id);
-})
-.catch(() => {
-  alert("data has not found");
-});
+  postOrderDetail = (cart) => {
 
-};
+    API.postOrder(this.state.cart.price,this.state.taxes,this.state.grandtotal)
+  .then((res) => {
+    res.json(cart);
+    console.log({ res });
 
-/////////order detail by ID /////////////////
-getorderdetail = (id) => {
-  API.getorderById(id)
-    .then((res) => {
-      console.log({res})
-      console.log("data has been received");
-    })
-    .catch(() => {
-      alert("data has not found");
-    });
-};
+    // const data = res.data.cartItem;
+    // this.setState({this.state.tax });
+    console.log("data has been received");
+  })
+  };
+
   ////////////////////////////////////////// It displays the customer choosed menu
   displaychoosedmenu = (items) => {
     return items.map((order, index) => {
@@ -234,11 +213,12 @@ getorderdetail = (id) => {
   ////////////////////////////remove from the list
   handleRemove = (e, id) => {
     e.preventDefault();
+    let total=0;
     const newlist = this.state.cart.filter((item) => item._id !== id);
     console.log(id);
     this.setState({ cart: newlist });
-    console.log(this.state.cart);
-  };
+   };
+/////////////////////////////////////////////////
 
   /////////////// render function
   render() {
@@ -257,17 +237,33 @@ getorderdetail = (id) => {
         <div>
           <div className="blog">{this.displaymenus(this.state.menus)}</div>
         </div>
-        <div className="display"> {this.displaychoosedmenu(this.state.cart)}</div>
+        <div className="display">
+          {" "}
+          {this.displaychoosedmenu(this.state.cart)}
+        </div>
 
         {/* <Button onClick={this.handleClick} label="Action">add</Button>
         {this.getComponent}  // call the method to render the modal here. */}
-         <div className="result"> {this.handleOrderDetails(this.state.cart)}</div> 
+        <div className="result">
+          {" "}
+          {this.handleOrderDetails(this.state.cart)}
+        </div>
         {/* <OrderDetail cart={this.state.cart} /> */}
       </>
     );
   }
 }
 export default orders;
-
-
-
+///////////order detail by ID /////////////////
+// getorderdetail = () => {
+//   API.getorderById()
+//     .then((res) => {
+//       console.log({ res });
+//       const data = res.data.Menu;
+//       this.setState({ orderDetail: data });
+//       console.log("data has been received");
+//     })
+//     .catch(() => {
+//       alert("data has not found");
+//     });
+// };

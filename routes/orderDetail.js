@@ -32,15 +32,10 @@ router.get("/api/order/:id", (req, res) => {
 
 /////////////////////////////Post Order Details/////////////////
 router.post("/api/order", (req, res) => {
-  db.Order.create(req)
-    .then((data) => {
-      console.log("data", data);
-      // res.send(data.total)
-      return res.status(200).json({ success: true, data });
-    })
-    .catch((err) => {
-      res.status(400).send(err);
-    });
+  db.Order.create(req.body).then((data) => res.json(data));
+  return res
+    .status(200)
+    .json({ success: true, data })
+    .catch((err) => res.status(400).send(err));
 });
-
 module.exports = router;

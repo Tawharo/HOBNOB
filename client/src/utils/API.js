@@ -40,9 +40,11 @@ export default {
   //   return axios.get("api/menu", {});
   // },
   getorderById: (id) => {
-    return axios.get(`/api/orderdetail/${id}`);
+    return axios.get(`/api/order/${id}`);
   },
-  postOrder: (cart,tax,total) => {
-    return axios.post("api/menu", { menuType: cart.title, price: cart.price,tax:tax,total:total });
+
+
+  postOrder: (tax,total) => {
+    return axios.post("/api/order", {tax:tax,grandTotal:total });
   },
 };
