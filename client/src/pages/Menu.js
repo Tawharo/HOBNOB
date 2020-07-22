@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import Logo from "../components/Logo";
 import MenuItem from "../components/MenuItem";
+import "../index.css";
 // import IntroHeader from "../components/IntroHeader";
 
 function Menu() {
@@ -18,25 +19,24 @@ function Menu() {
 
   return (
     <>
-      <div className="container-menu">
-        <Logo />
-
-        {food &&
-          food.length > 0 &&
-          identifyMenuGroups(food).map((menuGroup) => (
-            <>
-              <h4 className="menu-group">{menuGroup}</h4>
-              <br></br>
-              <div className="menu-field">
-                {food
-                  .filter((menuItem) => menuItem.type === menuGroup)
-                  .map((menuItem) => (
-                    <MenuItem props={menuItem} key={menuItem.menuItemName} />
-                  ))}
-              </div>
-            </>
-          ))}
-      </div>
+      <Logo />
+      {/* <div className="container-menu"> */}
+      {food &&
+        food.length > 0 &&
+        identifyMenuGroups(food).map((menuGroup) => (
+          <>
+            <h4 className="menu-group">{menuGroup}</h4>
+            <br></br>
+            <div className="menu-field">
+              {food
+                .filter((menuItem) => menuItem.type === menuGroup)
+                .map((menuItem) => (
+                  <MenuItem props={menuItem} key={menuItem.menuItemName} />
+                ))}
+            </div>
+          </>
+        ))}
+      {/* </div> */}
     </>
   );
 }

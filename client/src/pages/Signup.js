@@ -48,7 +48,7 @@ function Signup() {
   };
 
   return (
-    <>
+    <div>
       <Logo />
       <div style={signupStyles} className="Signup">
         <h1 className="signupLogo">Sign up to place your order.</h1>
@@ -89,7 +89,7 @@ function Signup() {
           Go to Login
         </Link>
       </div>
-    </>
+    </div>
   );
 }
 

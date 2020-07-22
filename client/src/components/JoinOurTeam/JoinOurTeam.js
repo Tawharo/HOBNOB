@@ -4,7 +4,7 @@ import "./style.css";
 
 function JoinOurTeam() {
   return (
-    <div>
+    <div class>
       <Logo />
       <div className="container-team">
         <h3>NOW HIRING!</h3>

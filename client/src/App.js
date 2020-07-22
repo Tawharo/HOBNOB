@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Our Components
 import { AuthProvider } from "./utils/auth";
@@ -29,52 +29,51 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div>
+        <div className="main-container">
           <Navbar />
-          <div className="main-container">
-            <Switch>
-              {
-                <ProtectedRoute exact path="/">
-                  <Home />
-                </ProtectedRoute>
-              }
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <Route exact path="/frontpage">
-                <FrontPage />
-              </Route>
-              <Route exact path="/signup">
-                <Signup />
-              </Route>
-              <Route exact path="/reservation">
-                <Reservation />
-              </Route>
-              <Route exact path="/joinourteam">
-                <JoinOurTeam />
-              </Route>
-              <Route exact path="/contact">
-                <Contact />
-              </Route>
-              <Route exact path="/menu">
-                <Menu />
-              </Route>
-              <Route exact path="/location">
-                <Location />
-              </Route>
-              <Route exact path="/pickup">
-                <Pickup />
-              </Route>
-              <ProtectedRoute exact path="/profile">
-                <Profile />
-                {/* <Order /> */}
+          <Switch>
+            {
+              <ProtectedRoute exact path="/">
+                <Home />
               </ProtectedRoute>
-              <AdminRoute exact path="/admin">
-                <Admin />
-              </AdminRoute>
-            </Switch>
-          </div>
+            }
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/frontpage">
+              <FrontPage />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+            <Route exact path="/reservation">
+              <Reservation />
+            </Route>
+            <Route exact path="/joinourteam">
+              <JoinOurTeam />
+            </Route>
+            <Route exact path="/contact">
+              <Contact />
+            </Route>
+            <Route exact path="/menu">
+              <Menu />
+            </Route>
+            <Route exact path="/location">
+              <Location />
+            </Route>
+            <Route exact path="/pickup">
+              <Pickup />
+            </Route>
+            <ProtectedRoute exact path="/profile">
+              <Profile />
+              {/* <Order /> */}
+            </ProtectedRoute>
+            <AdminRoute exact path="/admin">
+              <Admin />
+            </AdminRoute>
+          </Switch>
         </div>
+
         <Footer />
       </Router>
     </AuthProvider>
