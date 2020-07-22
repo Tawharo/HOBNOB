@@ -2,17 +2,16 @@ import React from "react";
 import API from "../../utils/API";
 import "./Order.css";
 import OrderDetail from "./OrderDetail";
-
+import OrderItem from "../OrderItem";
 class orders extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       cart: [],
       menus: [],
       tax: 0.06,
-      itemtotal:0,
-      taxes:0,
+      itemtotal: 0,
+      taxes: 0,
       grandtotal: 0,
       // showorderDetial: false,
     };
@@ -76,18 +75,18 @@ class orders extends React.Component {
     }
     if (!alreadyIncart) {
       let price = parseInt(item.price.substr(1));
-     let total=this.state.itemtotal;
+      let total = this.state.itemtotal;
       const newcart = [...this.state.cart];
       newcart.push(item);
       // this.setState({ total: item.price });
       // roundtax = this.state.itemtotal > 0 ? (price * 0.06 )+this.state.itemtotal: 0;
       this.setState({ cart: newcart });
-      total=price+this.state.grandtotal
-      let t=this.state.tax*total
-      this.state.taxes=t;
-      this.setState({ grandtotal: t + total});
-      this.setState({itemtotal:total})
-      this.setState({taxes:t})
+      total = price + this.state.grandtotal;
+      let t = this.state.tax * total;
+      this.state.taxes = t;
+      this.setState({ grandtotal: t + total });
+      this.setState({ itemtotal: total });
+      this.setState({ taxes: t });
       console.log(this.state.cart);
       // return <OrderDetail key={this.state.cart} cart={this.state.cart} />;
       // this.updateQuantity(event,newcart)
@@ -150,23 +149,24 @@ class orders extends React.Component {
         <h2>{this.state.itemtotal}</h2>
         <label className="Gtotal">Grandtotal</label>
         <h2>{this.state.grandtotal}</h2>
-        <button name="btns" onClick={()=>this.postOrderDetail(this.state.cart)}>submit</button>
+        <button name="btns" onClick={() => this.postOrderDetail()}>
+          submit
+        </button>
       </>
     );
   };
 
   ///////////////////////post order detail//////////////////////////////////
-  postOrderDetail = (cart) => {
-
-    API.postOrder(this.state.cart.price,this.state.taxes,this.state.grandtotal)
-  .then((res) => {
-    res.json(cart);
-    console.log({ res });
-
-    // const data = res.data.cartItem;
-    // this.setState({this.state.tax });
-    console.log("data has been received");
-  })
+  postOrderDetail = () => {
+    API.postOrder(
+      this.state.cart,
+      this.state.taxes,
+      this.state.grandtotal
+    ).then((res) => {
+      res.send(res);
+      console.log({ res });
+      console.log("data has been received");
+    });
   };
 
   ////////////////////////////////////////// It displays the customer choosed menu
@@ -213,12 +213,12 @@ class orders extends React.Component {
   ////////////////////////////remove from the list
   handleRemove = (e, id) => {
     e.preventDefault();
-    let total=0;
+    let total = 0;
     const newlist = this.state.cart.filter((item) => item._id !== id);
     console.log(id);
     this.setState({ cart: newlist });
-   };
-/////////////////////////////////////////////////
+  };
+  /////////////////////////////////////////////////
 
   /////////////// render function
   render() {
@@ -238,16 +238,11 @@ class orders extends React.Component {
           <div className="blog">{this.displaymenus(this.state.menus)}</div>
         </div>
         <div className="display">
-          {" "}
           {this.displaychoosedmenu(this.state.cart)}
         </div>
-
         {/* <Button onClick={this.handleClick} label="Action">add</Button>
         {this.getComponent}  // call the method to render the modal here. */}
-        <div className="result">
-          {" "}
-          {this.handleOrderDetails(this.state.cart)}
-        </div>
+        <div className="result">{this.handleOrderDetails(this.state.cart)}</div>
         {/* <OrderDetail cart={this.state.cart} /> */}
       </>
     );

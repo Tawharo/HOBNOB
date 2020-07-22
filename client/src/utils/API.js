@@ -29,9 +29,8 @@ export default {
 
   // retrieve menu items
   getMenu: () => {
-    console.log("<<< Menu API");
     return axios.get("api/menu", {});
-  }
+  },
 
   // getMenu: (res) => {
   //   return axios.get("api/menu", {});
@@ -44,8 +43,24 @@ export default {
     return axios.get(`/api/order/${id}`);
   },
 
-
-  postOrder: (tax,total) => {
-    return axios.post("/api/order", {tax:tax,grandTotal:total });
+  postOrder: (cart, tax, total) => {
+    if (cart.length > 0) {
+      cart.map((data) => {
+        console.log("dataa", data);
+        return axios.post("/api/order", {
+          price: data.price,
+          menuItemName: data.menuItemName,
+          quantity:data.qty,
+          tax: tax,
+          grandTotal: total,
+        });
+      });
+    }
+    return axios.post("/api/order", {
+      price: cart.price,
+      menuItemName: cart.menuItemName,
+      tax: tax,
+      grandTotal: total,
+    });
   },
 };

@@ -43,10 +43,10 @@ const orderDetailSchema = new Schema({
   //   type: String,
   //   required: false,
   // },
-  // quantity: {
-  //   type: Number,
-  //   required: false,
-  // },
+  quantity: {
+    type: Number,
+    required: false,
+  },
   tax: {
     type: Number,
     required: false,

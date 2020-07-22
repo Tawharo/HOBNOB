@@ -2,28 +2,26 @@
   .container {
     display: flex;
   }
-
   .main-container {
     display: flex;
     max-width: 1000px;
     justify-content: center;
     margin-left: 13%;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     flex-direction: column;
   }
 }
-
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: rgb(47, 45, 45);
+  display: flex;
+  flex-direction: column;
 }
-
 * {
   color: white;
+  background-color: #1d1919;
 }
-
 button {
   border: none;
   cursor: pointer;
@@ -33,36 +31,42 @@ button {
   padding: 0.75rem 1.5rem;
   border-radius: 5px;
 }
-
 button:hover,
 button:active,
 button:focus {
   background-color: rgb(197, 43, 12);
 }
 /* Menu Page */
-
 .container-menu {
   display: flex;
   flex-direction: column;
+  /* align-items: flex-start; */
   /* justify-content: flex-start; */
+  /* background-color: #1d1919; */
 }
-
 .menu-group {
   text-align: center;
   text-transform: uppercase;
   font-weight: 800;
 }
-
 .menu-field {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   margin-bottom: 20px;
 }
-
-.rock {
-  flex: auto;
-  flex-wrap: wrap;
-  align-items: right;
-  justify-content: space-between;
+/* Reservation Page */
+.to-menu {
+  border: none;
+  cursor: pointer;
+  background-color: rgba(77, 255, 0, 0.575);
+  color: white;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+}
+.to-menu:hover,
+.to-menu:active,
+.to-menu:focus {
+  background-color: rgba(77, 255, 0, 0.199);
 }
