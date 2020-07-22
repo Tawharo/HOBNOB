@@ -13,6 +13,7 @@ function Footer() {
         src="https://www.beerinstitute.org/wp-content/uploads/2017/07/instagram-icon-grey.3cf404e5.png"
         alt="insta"
       />
+
     </footer>
   );
 }

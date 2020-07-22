@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../Logo";
 import SimpleMap from "../SimpleMap";
 import Marker from "../Marker";
+import "./style.css";
 
 function Location() {
   return (
@@ -18,35 +19,38 @@ function Location() {
         <SimpleMap />
       </map>
       <Marker />
-      <div className="row">
-        <div className="col-3">
-          <p>
-            <strong>Location</strong>
+      <div className="container container-location">
+        <div className="row">
+          <div className="col m3">
+            <p>
+              <strong>Location</strong>
+            </p>
+            <p>6010 Hermitage Rd. Richmond, VA 23228</p>
+          </div>
+          <div className="col m3">
+            <p>
+              <strong>Hours</strong>
+            </p>
+            <p>
+              Tue–Fri: 11am–11pm Saturday: 5pm-11pm Sunday: 9am-3pm Monday: Closed
           </p>
-          <p>6010 Hermitage Rd. Richmond, VA 23228</p>
-        </div>
-        <div className="col-3">
-          <p>
-            <strong>Hours</strong>
-          </p>
-          <p>
-            Tue–Fri: 11am–11pm Saturday: 5pm-11pm Sunday: 9am-3pm Monday: Closed
-          </p>
-        </div>
-        <div className="col-3">
-          <p>
-            <strong>Parking</strong>
-          </p>
-          <p>
-            Ample parking is available in our lot (including near the dumpsters
-            and on either side of the building) and along Kenwood Avenue.
+          </div>
+          <div className="col m3">
+            <p>
+              <strong>Parking</strong>
+            </p>
+            <p>
+              Ample parking is available in our lot (including near the dumpsters
+              and on either side of the building) and along Kenwood Avenue.
             <strong>
-              Parking across the street at Hermitage Grocery is prohibited -
-              cars will be towed at owner’s expense.
+                Parking across the street at Hermitage Grocery is prohibited -
+                cars will be towed at owner’s expense.
             </strong>
-          </p>
+            </p>
+          </div>
         </div>
       </div>
+
     </>
   );
 }
