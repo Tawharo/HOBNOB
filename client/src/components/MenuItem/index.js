@@ -1,6 +1,5 @@
 import React from "react";
 import "./style.css";
-
 function MenuItem(props) {
   return (
     <div className="menu-card">
@@ -12,5 +11,4 @@ function MenuItem(props) {
     </div>
   );
 }
-
 export default MenuItem;

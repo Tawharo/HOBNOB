@@ -2,6 +2,9 @@ import React from "react";
 import Logo from "../Logo";
 import SimpleMap from "../SimpleMap";
 import Marker from "../Marker";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import "./style.css";
 
 function Location() {
@@ -19,23 +22,23 @@ function Location() {
         <SimpleMap />
       </map>
       <Marker />
-      <div className="container container-location">
-        <div className="row">
-          <div className="col m3">
+      <Container className="container-location">
+        <Row>
+          <Col xs={3}>
             <p>
               <strong>Location</strong>
             </p>
             <p>6010 Hermitage Rd. Richmond, VA 23228</p>
-          </div>
-          <div className="col m3">
+          </Col>
+          <Col xs={3}>
             <p>
               <strong>Hours</strong>
             </p>
             <p>
               Tue–Fri: 11am–11pm Saturday: 5pm-11pm Sunday: 9am-3pm Monday: Closed
-          </p>
-          </div>
-          <div className="col m3">
+            </p>
+          </Col>
+          <Col xs={3}>
             <p>
               <strong>Parking</strong>
             </p>
@@ -47,9 +50,9 @@ function Location() {
                 cars will be towed at owner’s expense.
             </strong>
             </p>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
 
     </>
   );

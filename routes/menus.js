@@ -14,7 +14,7 @@ router.get("/api/menu", (req, res) => {
       return res.status(404).json({ success: false, message: "No user found" });
     }
     // return res.status(200).json({ success: true, data });
-    // // console.log(data);
+    console.log(data);
     return res.status(200).json({ success: true, Menu: data });
   }).catch((err) => res.status(400).send(err));
 });
