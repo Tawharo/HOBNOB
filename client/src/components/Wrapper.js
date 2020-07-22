@@ -1,6 +1,6 @@
 import React from "react";
 
-function Container({ style, ...props }) {
+function Wrapper({ style, ...props }) {
   const containerStyle = {
     maxWidth: "30rem",
     margin: "0 auto",
@@ -9,4 +9,4 @@ function Container({ style, ...props }) {
   return <div style={containerStyle} {...props} />;
 }
 
-export default Container;
+export default Wrapper;

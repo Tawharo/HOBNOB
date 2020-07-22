@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-
+//import 'bootstrap/dist/css/bootstrap.min.css';
 // Our Components
 import { AuthProvider } from "./utils/auth";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -13,71 +12,62 @@ import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer";
 import Location from "./components/Location/Location";
-// import MenuComp from "./components/Menu";
-
 // our pages
 import Login from "./pages/Login";
-import Profile from "./pages/Profile";
+import Order from "./pages/Order";
 import Admin from "./pages/Admin";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
-import Pickup from "./pages/Pickup";
-// import Order from "./components/Order";
-
 function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="main-container">
+        <div>
           <Navbar />
-          <Switch>
-            {
-              <ProtectedRoute exact path="/">
-                <Home />
+          <div className="main-container">
+            <Switch>
+              {
+                <ProtectedRoute exact path="/">
+                  <Home />
+                </ProtectedRoute>
+              }
+              <Route exact path="/login">
+                <Login />
+              </Route>
+              <Route exact path="/frontpage">
+                <FrontPage />
+              </Route>
+              <Route exact path="/signup">
+                <Signup />
+              </Route>
+              <Route exact path="/reservation">
+                <Reservation />
+              </Route>
+              <Route exact path="/joinourteam">
+                <JoinOurTeam />
+              </Route>
+              <Route exact path="/contact">
+                <Contact />
+              </Route>
+              <Route exact path="/menu">
+                <Menu />
+              </Route>
+              <Route exact path="/location">
+                <Location />
+              </Route>
+              <ProtectedRoute exact path="/order">
+                <Order />
               </ProtectedRoute>
-            }
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/frontpage">
-              <FrontPage />
-            </Route>
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-            <Route exact path="/reservation">
-              <Reservation />
-            </Route>
-            <Route exact path="/joinourteam">
-              <JoinOurTeam />
-            </Route>
-            <Route exact path="/contact">
-              <Contact />
-            </Route>
-            <Route exact path="/menu">
-              <Menu />
-            </Route>
-            <Route exact path="/location">
-              <Location />
-            </Route>
-            <Route exact path="/pickup">
-              <Pickup />
-            </Route>
-            <ProtectedRoute exact path="/profile">
-              <Profile />
-              {/* <Order /> */}
-            </ProtectedRoute>
-            <AdminRoute exact path="/admin">
-              <Admin />
-            </AdminRoute>
-          </Switch>
+              <AdminRoute exact path="/admin">
+                <Admin />
+              </AdminRoute>
+            </Switch>
+          </div>
         </div>
-
         <Footer />
       </Router>
     </AuthProvider>
   );
 }
-
 export default App;

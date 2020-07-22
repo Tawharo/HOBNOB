@@ -4,7 +4,7 @@ import "./style.css";
 function Footer() {
   return (
     <footer className="image-div">
-      <p>Powered by JATAG</p>
+      <p>Powered JATAG</p>
       <img
         src="https://www.kindpng.com/picc/m/20-209935_facebook-icon-clipart-social-media-icons-grey-facebook.png"
         alt="fb"
