@@ -21,7 +21,6 @@ function Contact() {
             <div class="row">
               <div class="input-field col m4">
                 <input
-                  placeholder="Placeholder"
                   id="first_name"
                   type="text"
                   class="validate"
@@ -64,7 +63,7 @@ function Contact() {
               name="action"
             >
               Submit
-              <i class="material-icons right">send</i>
+              <i class="material-icons right"></i>
             </button>
           </form>
         </div>
