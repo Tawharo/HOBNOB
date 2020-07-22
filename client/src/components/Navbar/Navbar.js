@@ -63,7 +63,6 @@ function Navbar() {
           Profile
         </NavLink>
       );
-      console.log("admin TAB", role)
       if(role === "admin") {
         links.push(
           <NavLink key="admin" className="nav-item" to="/admin">
