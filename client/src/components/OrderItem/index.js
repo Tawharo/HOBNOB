@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import Orderfunction from "../Order"
 const showButtons = (isEdit) => {
   if (isEdit) {
     return (
@@ -11,22 +12,23 @@ const showButtons = (isEdit) => {
   } else {
     return (
       <div>
-        <Button variant="primary">Customize</Button>
-        <Button variant="primary">Add to Cart</Button>
+        {/* <Button variant="primary">Customize</Button> */}
+        {/* <Button variant="primary" onClick={Orderfunction.addItem(event,item)}>Add to Cart</Button> */}
       </div>
     );
   }
 };
+
 function OrderItem(props) {
   return (
     <Card style={{ width: "30rem" }}>
       {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
       <Card.Body>
-        <Card.Title style={{ color: "black" }}>
+        <Card.Title>
           {" "}
           {props.props.menuItemName} {props.props.price}
         </Card.Title>
-        <Card.Text style={{ color: "black" }}>
+        <Card.Text>
           {props.props.ingredients}
         </Card.Text>
         {showButtons(props.isEdit)}

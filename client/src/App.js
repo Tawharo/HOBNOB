@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 import Location from "./components/Location/Location";
 // our pages
 import Login from "./pages/Login";
-import Order from "./pages/Order";
+import Order from "./components/Order";
 import Admin from "./pages/Admin";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
