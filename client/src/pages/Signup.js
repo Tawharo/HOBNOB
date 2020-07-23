@@ -52,10 +52,7 @@ function Signup() {
       <Logo />
       <div style={signupStyles} className="Signup">
         <h4 className="signupLogo">Sign up to place your order.</h4>
-        <p>
-          If you do not currently have an accout. Please register by clicking
-          the sign up button.
-        </p>
+        <p></p>
         <Form onSubmit={handleFormSubmit}>
           <InputGroup
             id="username"

@@ -7,22 +7,18 @@ function Navbar() {
   const { isLoggedIn, logout, role } = useAuth();
   const links = [<BrandLink key="/" to="/" />];
   if (!isLoggedIn) {
+    // links.push(
+    //   <NavLink key="signup" className="nav-item" to="/signup">
+    //     Sign Up
+    //   </NavLink>
+    // );
     links.push(
-      <NavLink key="signup" className="nav-item" to="/signup">
-        Sign Up
-      </NavLink>
-    );
-    links.push(
-      <NavLink key="login" className="nav-item" to="/login">
-        Login
+      <NavLink key="frontpage" className="nav-item" to="/frontpage">
+        Home
       </NavLink>
     );
   }
-  links.push(
-    <NavLink key="frontpage" className="nav-item" to="/frontpage">
-      Home
-    </NavLink>
-  );
+
   links.push(
     <NavLink key="menu" className="nav-item" to="/menu">
       Menu
@@ -46,6 +42,11 @@ function Navbar() {
   links.push(
     <NavLink key="location" className="nav-item" to="/location">
       Location
+    </NavLink>
+  );
+  links.push(
+    <NavLink key="login" className="nav-item" to="/login">
+      Place Order
     </NavLink>
   );
   if (isLoggedIn) {

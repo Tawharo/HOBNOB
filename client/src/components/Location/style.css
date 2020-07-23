@@ -1,9 +1,12 @@
+.container {
+  background-color: orange;
+}
+
 .container-location {
-    display: flex;
-    margin-top: 50px;
+  display: flex;
+  margin-top: 50px;
 }
 
 .container-location .row {
-    align-items: flex-start;
-
+  align-items: flex-start;
 }

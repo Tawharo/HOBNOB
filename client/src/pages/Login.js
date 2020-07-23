@@ -38,6 +38,10 @@ function Login() {
       <Logo />
       <div style={loginStyle}>
         <h4>Login</h4>
+        <p>
+          If you do not currently have an accout. Please register by clicking
+          the sign up button.
+        </p>
         <Form onSubmit={handleFormSubmit}>
           <InputGroup
             id="email"

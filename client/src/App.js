@@ -12,7 +12,7 @@ import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer";
 import Location from "./components/Location/Location";
-// our pages
+// Our pages
 import Login from "./pages/Login";
 import Order from "./pages/Order";
 import Admin from "./pages/Admin";
