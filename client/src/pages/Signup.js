@@ -48,10 +48,14 @@ function Signup() {
   };
 
   return (
-    <div>
+    <>
       <Logo />
       <div style={signupStyles} className="Signup">
-        <h1 className="signupLogo">Sign up to place your order.</h1>
+        <h4 className="signupLogo">Sign up to place your order.</h4>
+        <p>
+          If you do not currently have an accout. Please register by clicking
+          the sign up button.
+        </p>
         <Form onSubmit={handleFormSubmit}>
           <InputGroup
             id="username"
@@ -89,7 +93,7 @@ function Signup() {
           Go to Login
         </Link>
       </div>
-    </div>
+    </>
   );
 }
 

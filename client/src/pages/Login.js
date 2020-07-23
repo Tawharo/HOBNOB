@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
+import Logo from "../components/Logo";
 
 const loginStyle = {
   display: "flex",
@@ -33,37 +34,40 @@ function Login() {
   };
 
   return (
-    <div style={loginStyle}>
-      <h1>Login</h1>
-      <Form onSubmit={handleFormSubmit}>
-        <InputGroup
-          id="email"
-          labelText="Email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <InputGroup
-          id="password"
-          labelText="Password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </Form>
-      <Link
-        style={{
-          marginTop: "1.5rem",
-          textAlign: "center",
-        }}
-        to="/signup"
-      >
-        Go to Signup
-      </Link>
-    </div>
+    <>
+      <Logo />
+      <div style={loginStyle}>
+        <h4>Login</h4>
+        <Form onSubmit={handleFormSubmit}>
+          <InputGroup
+            id="email"
+            labelText="Email"
+            name="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <InputGroup
+            id="password"
+            labelText="Password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button type="submit">Submit</button>
+        </Form>
+        <Link
+          style={{
+            marginTop: "1.5rem",
+            textAlign: "center",
+          }}
+          to="/signup"
+        >
+          Go to Signup
+        </Link>
+      </div>
+    </>
   );
 }
 
