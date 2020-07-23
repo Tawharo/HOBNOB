@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import API from "./../utils/API";
 import Logo from "../components/Logo";
 import MenuItem from "../components/MenuItem";
+import "../index.css";
 
 function Pickup() {
   const [formState, setFormState] = useState({
@@ -52,7 +53,9 @@ function Pickup() {
     getOrderPost();
   };
   function displayorder(posts) {
-    if (!posts.length) {return null;}
+    if (!posts.length) {
+      return null;
+    }
     return posts.map((post, index) => {
       // console.log({ post });
       // console.log({ post }.post.menuType);
@@ -85,7 +88,7 @@ function Pickup() {
       <Logo />
       <div>
         <form className="form" onSubmit={submit}>
-          <div className="rock">
+          <div>
             <input
               type="text"
               name="title"
@@ -94,7 +97,7 @@ function Pickup() {
               onChange={handleChange}
             />
           </div>
-          <div className="from-input" className="rock">
+          <div className="from-input">
             <textarea
               placeholder="text"
               name="body"
@@ -105,7 +108,7 @@ function Pickup() {
             ></textarea>
             <br />
           </div>
-          <button className="funny">Submit</button>
+          <button>Submit</button>
         </form>
       </div>
       <div className="blog">{displayorder(formState.posts)}</div>

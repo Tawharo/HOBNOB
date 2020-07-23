@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../utils/API";
 import Logo from "../components/Logo";
 import MenuItem from "../components/MenuItem";
+import "../index.css";
 // import IntroHeader from "../components/IntroHeader";
 
 function Menu() {
@@ -18,9 +19,8 @@ function Menu() {
 
   return (
     <>
+      <Logo />
       <div className="container-menu">
-        <Logo />
-
         {food &&
           food.length > 0 &&
           identifyMenuGroups(food).map((menuGroup) => (

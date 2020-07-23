@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import "../Navbar/Navbar.css";
 import Logo from "../Logo";
+import ResMod from "../Modal";
 
 function Reservation() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
-    <>
+    <div>
       <Logo />
 
       <p>
@@ -60,8 +66,13 @@ function Reservation() {
           </strong>
         </li>
       </ul>
-      <button>Book Now RESY</button>
-    </>
+      <div>
+        <button type="submit" onClick={handleShow}>
+          Book Now RESY
+        </button>
+        <ResMod show={show} handleClose={handleClose} />
+      </div>
+    </div>
   );
 }
 

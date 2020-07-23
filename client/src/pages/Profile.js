@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "./../utils/API";
-import Container from "../components/Container";
+import Wrapper from "../components/Wrapper";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 
@@ -19,13 +19,13 @@ function Profile() {
   }, [user]);
 
   return (
-    <Container>
+    <Wrapper>
       <h1>On the profile page!</h1>
       <p>Username: {username}</p>
       <p>Email: {email}</p>
       <p>Role: {role}</p>
       <Link to="/">Go home</Link>
-    </Container>
+    </Wrapper>
   );
 }
 

@@ -29,12 +29,13 @@ export default {
 
   // retrieve menu items
   getMenu: () => {
+    console.log("<<< Menu API");
     return axios.get("api/menu", {});
-  },
+  }
 
   // getMenu: (res) => {
   //   return axios.get("api/menu", {});
-  //   return axios.get("api/menu");
+  // return axios.get("api/menu");
   // },
   // getMenu: (res) => {
   //   return axios.get("api/menu", {});

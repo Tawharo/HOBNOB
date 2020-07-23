@@ -1,75 +1,63 @@
 import React from "react";
 import "../Navbar/Navbar.css";
 import Logo from "../Logo";
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function Contact() {
   return (
     <>
       <Logo />
+      <Container className="container-contact">
+        <Row>
+          <Col xs={6}>
+            <h4>Contact Us</h4>
+            <p>
+              Looking for a cozy space to host your next celebration or corporate
+              meeting? Need catering for a special event? Contact us for more
+              info!
+           </p>
+          </Col>
+          <Col xs={6}>
+            <Form>
+              <Row className="name-container">
+                <Col xs={6}>
+                  <Form.Group controlId="exampleForm.ControlInput1">
+                    <Form.Label>Name *</Form.Label>
+                    <Form.Control type="text" placeholder="" />
+                    <p>First Name</p>
+                  </Form.Group>
+                </Col>
+                <Col xs={6}>
+                  <Form.Group controlId="exampleForm.ControlInput1">
+                    <Form.Label>Name *</Form.Label>
+                    <Form.Control type="text" placeholder="" />
+                    <p>Last Name</p>
+                  </Form.Group>
+                </Col>
+              </Row>
+              <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Label>Email *</Form.Label>
+                <Form.Control type="text" placeholder="" />
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Label>Subject *</Form.Label>
+                <Form.Control type="text" placeholder="" />
+              </Form.Group>
+              <Form.Group controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Message *</Form.Label>
+                <Form.Control as="textarea" rows="3" />
+              </Form.Group>
+            </Form>
+            <button type="submit">Submit</button>
+          </Col>
+        </Row>
 
-      <div class="row">
-        <div class="col-4">
-          <h4>Contact Us</h4>
-          <p>
-            Looking for a cozy space to host your next celebration or corporate
-            meeting? Need catering for a special event? Contact us for more
-            info!
-          </p>
-        </div>
-        <div class="row">
-          <form class="col-8">
-            <div class="row">
-              <div class="input-field col m4">
-                <input
-                  placeholder="Placeholder"
-                  id="first_name"
-                  type="text"
-                  class="validate"
-                />
-                <label for="first_name">First Name</label>
-              </div>
-              <div class="input-field col-4">
-                <input id="last_name" type="text" class="validate" />
-                <label for="last_name">Last Name</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col-4">
-                <input id="email" type="email" class="validate" />
-                <label for="email">Email</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col-4">
-                <input id="subject" type="text" class="validate" />
-                <label for="subject">Subject</label>
-              </div>
-            </div>
-            <div class="row">
-              <form class="col-10">
-                <div class="row">
-                  <div class="input-field col s12">
-                    <textarea
-                      id="message"
-                      class="materialize-textarea"
-                    ></textarea>
-                    <label for="message">Message</label>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <button
-              class="btn waves-effect waves-light"
-              type="submit"
-              name="action"
-            >
-              Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </form>
-        </div>
-      </div>
+      </Container>
     </>
+
   );
 }
 

@@ -4,7 +4,7 @@ import "./style.css";
 
 function JoinOurTeam() {
   return (
-    <div>
+    <div class>
       <Logo />
       <div className="container-team">
         <h3>NOW HIRING!</h3>
@@ -17,8 +17,8 @@ function JoinOurTeam() {
         </p>
 
         <div class="row">
-          <div class="col m3">Line Cook</div>
-          <div class="col m6">
+          <div class="col m3>">Line Cook</div>
+          <div class="col m6>">
             We’re looking for an experienced line cook with an attention to
             detail, a positive attitude, and a drive to do better every single
             day. The ideal candidate will have a passion for seasonal food who
