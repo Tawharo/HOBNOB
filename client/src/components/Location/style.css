@@ -1,9 +1,13 @@
+.container-location {
+  margin-top: 80px;
+}
+
 .map {
   background-color: initial;
   /* z-index: 10; */
 }
 
-.location {
+.loca tion {
   display: flex;
   margin-top: 50px;
 }

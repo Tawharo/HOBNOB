@@ -8,8 +8,10 @@ const loginStyle = {
   display: "flex",
   justifyContent: "center",
   flexDirection: "column",
-  maxWidth: "400px",
+  width: "400px",
   margin: "0 auto",
+  marginTop: "80px",
+  // backgroundColor: "blue",
 };
 
 function Login() {
@@ -44,11 +46,7 @@ function Login() {
       <div style={loginStyle}>
         <div>
           <h4>Login</h4>
-          <p>If you do not have an accout. Please sign up here.</p>
-          <button className="link-button" onClick={routeChange}>
-            Sign up
-          </button>
-          <br></br>
+          <p className="contact">Please login to place an order for pick up.</p>
           <Form onSubmit={handleFormSubmit}>
             <InputGroup
               style={{
@@ -72,7 +70,17 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="button">Submit</button>
+            <button className="btn-rad">Submit</button>
+            <br></br>
+            <br></br>
+            <h4>Sign Up</h4>
+            <p className="contact">
+              If you have not signed up with us yet, please do now!
+            </p>
+
+            <button className="btn-rad" onClick={routeChange}>
+              Sign up
+            </button>
           </Form>
         </div>
       </div>

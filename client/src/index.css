@@ -26,6 +26,10 @@ body {
   /* background-color: #1d1919; */
 }
 
+.btn-rad {
+  border-radius: 0.25rem;
+}
+
 button {
   border: none;
   cursor: pointer;
@@ -33,7 +37,7 @@ button {
   color: white;
   font-size: 1.125rem;
   padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  border-radius: 0.25rem;
   width: 170px;
 }
 
@@ -49,6 +53,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 80px;
 }
 
 .menu-group {
@@ -87,4 +92,9 @@ button:focus {
   background-color: rgba(77, 255, 0, 0.199);
 }
 
-/* LogIn */
+/* LogIn Page */
+.LoginForm input {
+  border-radius: 0.25rem;
+}
+
+/* Sign Up Page */

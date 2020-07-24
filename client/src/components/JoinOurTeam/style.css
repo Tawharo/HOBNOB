@@ -1,6 +1,7 @@
 .container-team {
   display: flex;
   flex-direction: column;
+  margin-top: 80px;
 }
 
 h3 {

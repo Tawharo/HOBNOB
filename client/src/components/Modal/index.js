@@ -41,7 +41,7 @@ function ResMod(props) {
             </p>
           </Modal.Body>
           <Modal.Footer>
-            <button className="link-button" onClick={routeChange}>
+            <button className="btn-rad" onClick={routeChange}>
               Log In
             </button>
           </Modal.Footer>
