@@ -19,6 +19,7 @@ function Location() {
           <SimpleMap />
         </map>
         <Marker />
+        <br></br>
         <div className="location">
           <div className="row">
             <div className="col m3">

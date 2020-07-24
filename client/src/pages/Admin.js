@@ -168,8 +168,8 @@ function Admin() {
         )}
         {showEditItem && (
          
-            <Row>
-              <Col xs={6}>
+            // <Row>
+            //   <Col xs={6}>
                 {menuItems.map((menuItem) => (
                   <OrderItem
                     props={menuItem}
@@ -177,8 +177,8 @@ function Admin() {
                     isEdit={true}
                   />
                 ))}
-              </Col>
-            </Row>
+            //   </Col>
+            // </Row>
 
         )}
         {showViewOrders && <div>show orders here.</div>}
