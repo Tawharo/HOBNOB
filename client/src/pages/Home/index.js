@@ -8,17 +8,17 @@ function Home() {
   const { user, logout } = useAuth();
   const history = useHistory();
 
-  const goToEditProfile = () => history.push("/profile");
+  const goToEditProfile = () => history.push("/order");
 
   return (
     <div className="Home">
       <Logo />
       <div className="Home-header">
-        <h2>Welcome {user.email}</h2>
+        <h2>Welcome {user.username}</h2>
       </div>
       <p className="Home-intro">
         <button className="btn-rad" onClick={goToEditProfile}>
-          Go to Profile
+          Place Order
         </button>
         <button
           className="btn-rad"
