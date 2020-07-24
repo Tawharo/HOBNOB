@@ -3,6 +3,7 @@ import axios from "axios";
 export default {
   // Gets a single user by id
   getUser: (id) => {
+    console.log("<<<", id);
     return axios.get(`/api/user/${id}`);
   },
 

@@ -12,7 +12,7 @@ import JoinOurTeam from "./components/JoinOurTeam/JoinOurTeam";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer";
 import Location from "./components/Location/Location";
-// our pages
+// Our pages
 import Login from "./pages/Login";
 import Order from "./components/Order";
 import Admin from "./pages/Admin";
@@ -24,45 +24,47 @@ function App() {
     <AuthProvider>
       <Router>
         <div>
-          <Navbar />
-          <div className="main-container">
-            <Switch>
-              {
-                <ProtectedRoute exact path="/">
-                  <Home />
+          <div className="container">
+            <div className="main-container">
+              <Navbar />
+              <Switch>
+                {
+                  <ProtectedRoute exact path="/">
+                    <Home />
+                  </ProtectedRoute>
+                }
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                <Route exact path="/frontpage">
+                  <FrontPage />
+                </Route>
+                <Route exact path="/signup">
+                  <Signup />
+                </Route>
+                <Route exact path="/reservation">
+                  <Reservation />
+                </Route>
+                <Route exact path="/joinourteam">
+                  <JoinOurTeam />
+                </Route>
+                <Route exact path="/contact">
+                  <Contact />
+                </Route>
+                <Route exact path="/menu">
+                  <Menu />
+                </Route>
+                <Route exact path="/location">
+                  <Location />
+                </Route>
+                <ProtectedRoute exact path="/order">
+                  <Order />
                 </ProtectedRoute>
-              }
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              <Route exact path="/frontpage">
-                <FrontPage />
-              </Route>
-              <Route exact path="/signup">
-                <Signup />
-              </Route>
-              <Route exact path="/reservation">
-                <Reservation />
-              </Route>
-              <Route exact path="/joinourteam">
-                <JoinOurTeam />
-              </Route>
-              <Route exact path="/contact">
-                <Contact />
-              </Route>
-              <Route exact path="/menu">
-                <Menu />
-              </Route>
-              <Route exact path="/location">
-                <Location />
-              </Route>
-              <ProtectedRoute exact path="/order">
-                <Order />
-              </ProtectedRoute>
-              <AdminRoute exact path="/admin">
-                <Admin />
-              </AdminRoute>
-            </Switch>
+                <AdminRoute exact path="/admin">
+                  <Admin />
+                </AdminRoute>
+              </Switch>
+            </div>
           </div>
         </div>
         <Footer />

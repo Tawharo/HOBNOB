@@ -1,10 +1,11 @@
 import React from "react";
 import "../Navbar/Navbar.css";
 import Logo from "../Logo";
-import Form from 'react-bootstrap/Form';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./Contact.css";
 
 function Contact() {
   return (
@@ -14,11 +15,11 @@ function Contact() {
         <Row>
           <Col xs={6}>
             <h4>Contact Us</h4>
-            <p>
-              Looking for a cozy space to host your next celebration or corporate
-              meeting? Need catering for a special event? Contact us for more
-              info!
-           </p>
+            <p className="contact">
+              Looking for a cozy space to host your next celebration or
+              corporate meeting? Need catering for a special event? Contact us
+              for more info!
+            </p>
           </Col>
           <Col xs={6}>
             <Form>
@@ -51,13 +52,11 @@ function Contact() {
                 <Form.Control as="textarea" rows="3" />
               </Form.Group>
             </Form>
-            <button type="submit">Submit</button>
+            <button className="btn-rad">Submit</button>
           </Col>
         </Row>
-
       </Container>
     </>
-
   );
 }
 

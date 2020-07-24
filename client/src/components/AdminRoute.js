@@ -8,12 +8,11 @@ function AdminRoute(props) {
   console.log("admin router");
   console.log(user);
   console.log(role);
-  if(isLoggedIn && role === "admin") {
+  if (isLoggedIn && role === "admin") {
     return <Route {...props} />;
   } else {
-    return <Redirect to="/signup" />;
+    return <Redirect to="/login" />;
   }
-  
 }
 
 export default AdminRoute;

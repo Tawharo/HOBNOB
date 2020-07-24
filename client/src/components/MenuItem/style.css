@@ -1,25 +1,32 @@
-.menu-card {
-  background-color: rgba(245, 245, 245, 0);
-  /* height: 100px; */
-  height: 20vh;
+.card-container {
   width: 400px;
-  margin-left: 95px;
-  /* margin-bottom: 30px; */
-  box-shadow: none;
   display: flex;
-  flex-flow: row wrap;
+  justify-content: flex-start;
+  border: none;
+  background-color: #1d1919;
 }
 
-.price {
-  float: right;
+.title-container {
+  width: 370px;
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: space-between;
 }
 
 .menu-title {
-  font-size: large;
-  font-weight: 600;
-  display: inline;
+  display: flex;
+  width: 290px;
+}
+
+.menu-price {
+  display: flex;
+}
+
+.description-field {
+  width: 290px;
 }
 
 .menu-description {
-  width: 270px;
+  width: 290px;
+  display: inline;
 }
