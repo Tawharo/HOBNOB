@@ -1,9 +1,17 @@
 .container-location {
-    display: flex;
-    margin-top: 50px;
+  margin-top: 80px;
 }
 
-.container-location .row {
-    align-items: flex-start;
+.map {
+  background-color: initial;
+  /* z-index: 10; */
+}
 
+.loca tion {
+  display: flex;
+  margin-top: 50px;
+}
+
+.row {
+  align-items: flex-start;
 }

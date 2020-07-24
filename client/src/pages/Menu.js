@@ -3,7 +3,6 @@ import API from "../utils/API";
 import Logo from "../components/Logo";
 import MenuItem from "../components/MenuItem";
 import "../index.css";
-// import IntroHeader from "../components/IntroHeader";
 
 function Menu() {
   const [food, setFood] = useState([]);
@@ -31,7 +30,11 @@ function Menu() {
                 {food
                   .filter((menuItem) => menuItem.type === menuGroup)
                   .map((menuItem) => (
-                    <MenuItem props={menuItem} key={menuItem.menuItemName} />
+                    <MenuItem
+                      className="menu-item"
+                      props={menuItem}
+                      key={menuItem.menuItemName}
+                    />
                   ))}
               </div>
             </>

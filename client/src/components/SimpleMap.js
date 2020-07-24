@@ -9,7 +9,13 @@ const SimpleMap = (props) => {
   });
   const [zoom, setZoom] = useState(11);
   return (
-    <div style={{ height: "50vh", width: "50%", margin: "0 auto" }}>
+    <div
+      style={{
+        height: "50vh",
+        width: "90%",
+        margin: "0 auto",
+      }}
+    >
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyCa4dyWpTiZ4vim1pA_kesR6mQn--gtInE" }}
         defaultCenter={center}
@@ -18,7 +24,7 @@ const SimpleMap = (props) => {
         <Marker
           lat={37.6118454}
           lng={-77.47254939999999}
-          name="My Marker"
+          name="Hobnob"
           color="blue"
         />
       </GoogleMapReact>

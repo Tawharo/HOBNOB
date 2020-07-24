@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../utils/auth";
 import { Form, InputGroup } from "../components/LoginForm";
+import Logo from "../components/Logo";
 
 const loginStyle = {
   display: "flex",
   justifyContent: "center",
   flexDirection: "column",
-  maxWidth: "20rem",
+  width: "400px",
   margin: "0 auto",
+  marginTop: "80px",
+  // backgroundColor: "blue",
 };
 
 function Login() {
@@ -26,44 +29,62 @@ function Login() {
 
     login(email, password)
       // navigate to the profile page
-      .then(() => history.push("/profile"))
+      .then(() => history.push("/"))
       .catch((err) => {
         alert(err.response.data.message);
       });
   };
 
+  const routeChange = () => {
+    let path = "/signup";
+    history.push(path);
+  };
+
   return (
-    <div style={loginStyle}>
-      <h1>Login</h1>
-      <Form onSubmit={handleFormSubmit}>
-        <InputGroup
-          id="email"
-          labelText="Email"
-          name="email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <InputGroup
-          id="password"
-          labelText="Password"
-          name="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </Form>
-      <Link
-        style={{
-          marginTop: "1.5rem",
-          textAlign: "center",
-        }}
-        to="/signup"
-      >
-        Go to Signup
-      </Link>
-    </div>
+    <>
+      <Logo />
+      <div style={loginStyle}>
+        <div>
+          <h4>Login</h4>
+          <p className="contact">Please login to place an order for pick up.</p>
+          <Form onSubmit={handleFormSubmit}>
+            <InputGroup
+              style={{
+                color: "black",
+              }}
+              id="email"
+              labelText="Email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <InputGroup
+              style={{
+                color: "black",
+              }}
+              id="password"
+              labelText="Password"
+              name="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="btn-rad">Log In</button>
+            <br></br>
+            <br></br>
+            <h4>Sign Up</h4>
+            <p className="contact">
+              If you have not signed up with us yet, please do now!
+            </p>
+
+            <button className="btn-rad" onClick={routeChange}>
+              Sign up
+            </button>
+          </Form>
+        </div>
+      </div>
+    </>
   );
 }
 
