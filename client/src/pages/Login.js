@@ -70,7 +70,7 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="btn-rad">Submit</button>
+            <button className="btn-rad">Log In</button>
             <br></br>
             <br></br>
             <h4>Sign Up</h4>
