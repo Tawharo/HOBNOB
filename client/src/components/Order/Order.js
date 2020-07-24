@@ -1,11 +1,12 @@
 import React from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
 import "./Order.css";
-// import Modal from "react-modal";
+import Modal from "react-modal";
 import OrderDetail from "./OrderDetail";
 import OrderItem from "../OrderItem";
 import Logo from "../Logo";
 import { Button, Card } from "react-bootstrap";
+import ReactDOM from "react-dom";
 // import OrderItem from "../OrderItem/OrderItem";
 
 class orders extends React.Component {
@@ -19,10 +20,23 @@ class orders extends React.Component {
       taxes: 0,
       grandtotal: 0,
       orderDetail: [],
-      // showorderDetial: false,
+      display: false,
+      curTime : new Date().toLocaleString(),
+     
     };
-    // this.handleClick = this.handleClick.bind(this);
+   
   }
+
+  state = { show: false };
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+  //////////////////////////////////////////////////////////////
   componentDidMount = () => {
     this.getMenus();
   };
@@ -38,7 +52,7 @@ class orders extends React.Component {
         alert("data has not found");
       });
   };
-  //////////////////////////////////////////////// Add function ///////////////////////////
+  //////////////////////////////////////////////// Display Menu function ///////////////////////////
   displaymenus = (menus) => {
     if (!menus.length) return null;
     return menus.map((order, index) => {
@@ -72,6 +86,7 @@ class orders extends React.Component {
         console.log(cartItem._id);
         if (cartItem._id === item._id) {
           alert("Its already choosed");
+          return null;
         }
         return cartItem;
       });
@@ -157,72 +172,83 @@ class orders extends React.Component {
               <h3>{this.state.taxes}</h3>
               <label className="Gtotal">Grand Total</label>
               <h2>{this.state.grandtotal}</h2>
-              <button name="btns" onClick={(e) => this. postOrderDetail(e)}>
-               submit
+              <button
+                name="btn1"
+                onClick={() => this.setState({ display: true })}
+              >
+                submit
               </button>
-           
             </Card.Text>
           </Card.Body>
         </Card>
-        </>
-    );
-  };
- //////////////////////   Display Modal   ////////////////////////////
- display = (e) => {
-  e.preventDefault()
-  const items = this.state.cart;
-   items.map((order, index) => {
-    if (!items.length) return null;
-    const menulist = { order }.order;
-    const price = menulist.price;
-    const menuItemName = menulist.menuItemName;
-    const ingredients = menulist.ingredients;
-    const quantity = menulist.qty;
-
-    // const [modalIsOpen, setmodalIsOpen] = useState(false);
-    return (
-      <>
-      {/* <button onClick={()=> setmodalIsOpen(true)}Open modal> Open modal</button>
-        <Modal isOpen={modalIsOpen}> */}
-          <div className="menuItem" key={index}></div>
-          <div className="menuTitle">{menuItemName}</div>
-          <div className="menuDescription">{ingredients}</div>
-          <div className="quantity">{quantity}</div>
-          <div className="price">{price}</div>
-
-          {/* <div>
-          <label name="Qty">Quantity</label>
-          <input
-            value={this.findValue(menulist._id)}
-            onChange={(e) => {
-              console.log({ menulist });
-              this.updateQuantity(e, menulist);
-            }}
-            type="number"
-          />
-        </div> */}
-        {/* </Modal> */}
       </>
     );
-  });
-};
-
-  ///////////////////////   post order detail   //////////////////////////////////
-  postOrderDetail = () => {
-    API.postOrder(this.state.cart, this.state.taxes, this.state.grandtotal)
-    .then((res) => {
-      res.send(res);
-      const data = res.data;
-      console.log({ res });
-      this.setState({ orderDetail: data });
-      console.log("data has been received");
-    })
-    .catch((e) => {
-      console.log(e, "data has not found");
-    });
-    const id = "5f1914de03b16654d4f47b96";
-    this.getorderdetail(id);
   };
+  /////////////////////////////////////////////////////////////////////////////////////
+  displayReceipt = (items) => {
+    return items.map((order, index) => {
+      if (!items.length) return null;
+      const menulist = { order }.order;
+      // const price= parseInt(menulist.price)
+
+      const price = menulist.price;
+      const menuItemName = menulist.menuItemName;
+      const ingredients = menulist.ingredients;
+      const quantity = menulist.qty;
+      return (
+        <>
+            <Card style={{ width: "30rem", align: "left" }}>
+            <Card.Body style={{ align: "left" }}>
+              <Card.Text>
+                <div className="menuItem" key={index}></div>
+                <div className="menuTitle">{menuItemName}</div>
+                <div className="price">{price}</div>
+                <div className="menuDescription">{ingredients}</div>
+                <div className="quantity"> {quantity}</div>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </>
+      );
+    });
+  };
+/////////////////////////////////////////////////////////////////////////////////////////
+
+displayPrice = () => {
+  return (
+    <>
+      <Card style={{ width: "30rem", align: "left" }}>
+        <Card.Header>Header</Card.Header>
+        <Card.Body style={{ align: "left" }}>
+          <Card.Text>
+            <label className="Total Menu">Total Menu</label>
+            <h2>{this.state.itemtotal}</h2>
+            <label className="tax">Tax</label>
+            <h3>{this.state.taxes}</h3>
+            <label className="Gtotal">Grand Total</label>
+            <h2>{this.state.grandtotal}</h2>
+            </Card.Text>
+        </Card.Body>
+      </Card>
+    </>
+  );
+};
+  ///////////////////////   post order detail   //////////////////////////////////
+  // postOrderDetail = () => {
+  //   API.postOrder(this.state.cart, this.state.taxes, this.state.grandtotal)
+  //   .then((res) => {
+  //     res.send(res);
+  //     const data = res.data;
+  //     console.log({ res });
+  //     this.setState({ orderDetail: data });
+  //     console.log("data has been received");
+  //   })
+  //   .catch((e) => {
+  //     console.log(e, "data has not found");
+  //   });
+  //   const id = "5f1914de03b16654d4f47b96";
+  //   this.getorderdetail(id);
+  // };
 
   ///////////order detail by ID /////////////////
   // getorderdetail = (id) => {
@@ -238,7 +264,6 @@ class orders extends React.Component {
   //     });
   // };
 
- 
   ////////////////////////////////////////// It displays the customer choosed menu  /////////////////////
   displaychoosedmenu = (items) => {
     return items.map((order, index) => {
@@ -291,7 +316,6 @@ class orders extends React.Component {
     const newlist = this.state.cart.filter((item) => item._id !== id);
     console.log("which Id", id);
     this.setState({ cart: newlist });
-    // this.addItem(e, newlist);
   };
   /////////////////////////////////////////////////
 
@@ -308,19 +332,40 @@ class orders extends React.Component {
         </>
       );
     }
-    return (
+
+    if (this.state.display !== true) {
+      return (
+        <>
+          <div>
+            <Logo />
+            <div className="blog">{this.displaymenus(this.state.menus)}</div>
+          </div>
+          {/* {this.state.showOrderDetail ? (
+          <OrderDetail report={this.state.finalOrder} />
+        ) : null} */}
+
+          <div className="display">
+            {this.displaychoosedmenu(this.state.cart)}
+          </div>
+          <div className="result">
+            {this.handleOrderDetails(this.state.cart)}
+          </div>
+          {/* <OrderDetail cart={this.state.cart} /> */}
+        </>
+      );
+    }
+    return (  
       <>
-        <div>
-          <Logo />
-          <div className="blog">{this.displaymenus(this.state.menus)}</div>
+        <Logo />
+
+        <div className="dis">
+        <p >Receipt</p>
+        <p>Current Time : {this.state.curTime}</p>
+          {this.displayReceipt(this.state.cart)}
+          {this.displayPrice()}
+          <button name="print">Print</button>{" "}
+          <button name="email"> Email</button>
         </div>
-        <div className="display">
-          {this.displaychoosedmenu(this.state.cart)}
-        </div>
-        {/* <Button onClick={this.handleClick} label="Action">add</Button>
-        {this.getComponent}  // call the method to render the modal here. */}
-        <div className="result">{this.handleOrderDetails(this.state.cart)}</div>
-        {/* <OrderDetail cart={this.state.cart} /> */}
       </>
     );
   }
