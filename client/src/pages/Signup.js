@@ -6,11 +6,12 @@ import { Form, InputGroup } from "../components/LoginForm";
 import Logo from "../components/Logo";
 
 const signupStyles = {
-  maxWidth: "20rem",
-  margin: "0 auto",
   display: "flex",
-  justifyContent: "center",
+  justifyContent: "start",
   flexDirection: "column",
+  maxWidth: "400px",
+  margin: "0 auto",
+  marginTop: "80px",
 };
 
 function Signup() {
@@ -48,48 +49,52 @@ function Signup() {
   };
 
   return (
-    <div>
+    <>
       <Logo />
       <div style={signupStyles} className="Signup">
-        <h1 className="signupLogo">Sign up to place your order.</h1>
+        <h4 className="signupLogo">Sign Up</h4>
+        <p className="contact">
+          You must have an account to place an online order for pickup. Please
+          fill-out the form below.
+        </p>
+        <br></br>
         <Form onSubmit={handleFormSubmit}>
           <InputGroup
+            style={{
+              color: "black",
+            }}
             id="username"
             labelText="Username"
-            placeholder="WinterIsComing"
             name="username"
             type="text"
             onChange={handleChange}
           />
           <InputGroup
+            style={{
+              color: "black",
+            }}
             id="email"
             labelText="Email"
-            placeholder="jon.snow@email.com"
             name="email"
             type="email"
             onChange={handleChange}
           />
           <InputGroup
+            style={{
+              color: "black",
+            }}
             id="pwd"
             labelText="Password"
-            placeholder="p@ssw0Rd!"
             name="password"
             type="password"
             onChange={handleChange}
           />
-          <button type="submit">Submit</button>
+          <button className="btn-rad" type="submit">
+            Submit
+          </button>
         </Form>
-        <Link
-          style={{
-            marginTop: "1.5rem",
-            textAlign: "center",
-          }}
-          to="/login"
-        >
-          Go to Login
-        </Link>
       </div>
-    </div>
+    </>
   );
 }
 

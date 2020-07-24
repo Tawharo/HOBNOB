@@ -3,6 +3,7 @@ import axios from "axios";
 export default {
   // Gets a single user by id
   getUser: (id) => {
+    console.log("<<<", id);
     return axios.get(`/api/user/${id}`);
   },
 
@@ -31,7 +32,7 @@ export default {
   getMenu: () => {
     console.log("<<< Menu API");
     return axios.get("api/menu", {});
-  }
+  },
 
   // getMenu: (res) => {
   //   return axios.get("api/menu", {});

@@ -1,24 +1,30 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import logo from "./logo.svg";
 import "./home.css";
 import { useAuth } from "../../utils/auth";
+import Logo from "../../components/Logo";
 
 function Home() {
   const { user, logout } = useAuth();
   const history = useHistory();
 
-  const goToEditProfile = () => history.push("/profile");
+  const goToEditProfile = () => history.push("/order");
 
   return (
     <div className="Home">
+      <Logo />
       <div className="Home-header">
-        <img src={logo} className="Home-logo" alt="logo" />
-        <h2>Welcome {user.email}</h2>
+        <h2>Welcome {user.username}</h2>
       </div>
       <p className="Home-intro">
-        <button onClick={goToEditProfile}>Go to Profile</button>
-        <button style={{ marginLeft: "1em" }} onClick={() => logout()}>
+        <button className="btn-rad" onClick={goToEditProfile}>
+          Place Order
+        </button>
+        <button
+          className="btn-rad"
+          style={{ marginLeft: "1em" }}
+          onClick={() => logout()}
+        >
           Logout
         </button>
       </p>

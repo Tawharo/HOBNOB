@@ -7,7 +7,7 @@ function ProtectedRoute(props) {
   if (isLoggedIn) {
     return <Route {...props} />;
   }
-  return <Redirect to="/signup" />;
+  return <Redirect to="/login" />;
 }
 
 export default ProtectedRoute;
