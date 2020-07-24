@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import OrderDetail from "./OrderDetail";
 import OrderItem from "../OrderItem";
 import Logo from "../Logo";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, variant, Alert } from "react-bootstrap";
 import ReactDOM from "react-dom";
 // import OrderItem from "../OrderItem/OrderItem";
 
@@ -21,21 +21,10 @@ class orders extends React.Component {
       grandtotal: 0,
       orderDetail: [],
       display: false,
-      curTime : new Date().toLocaleString(),
-     
+      curTime: new Date().toLocaleString(),
     };
-   
   }
 
-  state = { show: false };
-
-  showModal = () => {
-    this.setState({ show: true });
-  };
-
-  hideModal = () => {
-    this.setState({ show: false });
-  };
   //////////////////////////////////////////////////////////////
   componentDidMount = () => {
     this.getMenus();
@@ -58,20 +47,36 @@ class orders extends React.Component {
     return menus.map((order, index) => {
       const menulist = { order }.order;
       return (
-        <div>
-          {/* <div className="card"> */}
-          <div className="menuItem" key={index}></div>
-          <div className="menuTitle">{menulist.menuItemName}</div>
-          <div className="price">{menulist.price}</div>
-          <div className="menuDescription">{menulist.ingredients}</div>
-          <button
-            name="btn"
-            key={menulist._id}
-            onClick={(event) => this.addItem(event, menulist)}
-          >
-            add
-          </button>
-        </div>
+        <Card style={{ width: "18rem" }}>
+          {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+          <Card.Body>
+            <Card.Title>HobNob Menu</Card.Title>
+            <Card.Text>
+              <div className="menuItem"> key={index}</div>
+              <p className="menuTitle">{menulist.menuItemName}</p>
+              <p className="price">{menulist.price}</p>
+              <p className="menuDescription">{menulist.ingredients}</p>
+            </Card.Text>
+            <Button
+              variant="primary"
+              key={menulist._id}
+              onClick={(event) => this.addItem(event, menulist)}
+            >
+              Add
+            </Button>
+          </Card.Body>
+        </Card>
+        // <div>
+        //   {/* <div className="card"> */}
+
+        //   <button
+        //     name="btn"
+        //     key={menulist._id}
+        //     onClick={(event) => this.addItem(event, menulist)}
+        //   >
+        //     add
+        //   </button>
+        // </div>
       );
     });
   };
@@ -80,15 +85,15 @@ class orders extends React.Component {
   addItem = (event, item) => {
     event.preventDefault();
     let alreadyIncart = false;
-    if (!item) return null;
     if (this.state.cart.length > 0) {
       this.state.cart = this.state.cart.map((cartItem) => {
-        console.log(cartItem._id);
+       
         if (cartItem._id === item._id) {
           alert("Its already choosed");
-          return null;
+          alreadyIncart = true;
         }
-        return cartItem;
+         
+          return cartItem;
       });
     }
     if (!alreadyIncart) {
@@ -197,7 +202,7 @@ class orders extends React.Component {
       const quantity = menulist.qty;
       return (
         <>
-            <Card style={{ width: "30rem", align: "left" }}>
+          <Card style={{ width: "30rem", align: "left" }}>
             <Card.Body style={{ align: "left" }}>
               <Card.Text>
                 <div className="menuItem" key={index}></div>
@@ -212,27 +217,27 @@ class orders extends React.Component {
       );
     });
   };
-/////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////
 
-displayPrice = () => {
-  return (
-    <>
-      <Card style={{ width: "30rem", align: "left" }}>
-        <Card.Header>Header</Card.Header>
-        <Card.Body style={{ align: "left" }}>
-          <Card.Text>
-            <label className="Total Menu">Total Menu</label>
-            <h2>{this.state.itemtotal}</h2>
-            <label className="tax">Tax</label>
-            <h3>{this.state.taxes}</h3>
-            <label className="Gtotal">Grand Total</label>
-            <h2>{this.state.grandtotal}</h2>
+  displayPrice = () => {
+    return (
+      <>
+        <Card style={{ width: "30rem", align: "left" }}>
+          <Card.Header>Header</Card.Header>
+          <Card.Body style={{ align: "left" }}>
+            <Card.Text>
+              <label className="Total Menu">Total Menu</label>
+              <h2>{this.state.itemtotal}</h2>
+              <label className="tax">Tax</label>
+              <h3>{this.state.taxes}</h3>
+              <label className="Gtotal">Grand Total</label>
+              <h2>{this.state.grandtotal}</h2>
             </Card.Text>
-        </Card.Body>
-      </Card>
-    </>
-  );
-};
+          </Card.Body>
+        </Card>
+      </>
+    );
+  };
   ///////////////////////   post order detail   //////////////////////////////////
   // postOrderDetail = () => {
   //   API.postOrder(this.state.cart, this.state.taxes, this.state.grandtotal)
@@ -269,8 +274,7 @@ displayPrice = () => {
     return items.map((order, index) => {
       if (!items.length) return null;
       const menulist = { order }.order;
-      // const price= parseInt(menulist.price)
-
+    
       const price = menulist.price;
       const menuItemName = menulist.menuItemName;
       const ingredients = menulist.ingredients;
@@ -310,16 +314,28 @@ displayPrice = () => {
     });
   };
 
-  ////////////////////////////remove from the list
+  ////////////////////////////  remove from the list   /////////////////////////////////////////////////
   handleRemove = (e, id) => {
     e.preventDefault();
-    const newlist = this.state.cart.filter((item) => item._id !== id);
-    console.log("which Id", id);
+    let tot=0;
+    const newlist = this.state.cart.filter((item) => item._id !== id)
     this.setState({ cart: newlist });
+    if (newlist.length > 0){
+    newlist.map((data)=>{
+      let price = parseInt(data.price.substr(1));
+      tot = price + tot
+      console.log("tot",tot)  
+      
+      let tax=0.06*tot
+      let grandtot= tax + tot
+      this.setState({taxes:tax,itemtotal:tot,grandtotal:grandtot})
+    })
+  }
+    
   };
-  /////////////////////////////////////////////////
+ 
 
-  /////////////// render function
+  /////////////// render function    /////////////////////////////////////////////////
   render() {
     console.log("state:", this.state.cart);
     if (this.state.cart.length === 0) {
@@ -354,16 +370,16 @@ displayPrice = () => {
         </>
       );
     }
-    return (  
+    return (
       <>
         <Logo />
 
         <div className="dis">
-        <p >Receipt</p>
-        <p>Current Time : {this.state.curTime}</p>
+          <p>Receipt</p>
+          <p>Current Time : {this.state.curTime}</p>
           {this.displayReceipt(this.state.cart)}
           {this.displayPrice()}
-          <button name="print">Print</button>{" "}
+          <button name="print" onClick={"http://localhost:3000/frontpage"}>Print</button>
           <button name="email"> Email</button>
         </div>
       </>
