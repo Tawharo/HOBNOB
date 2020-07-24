@@ -54,12 +54,14 @@ button:focus {
   flex-direction: column;
   justify-content: center;
   margin-top: 80px;
+  /* background-color: darkorange; */
 }
 
 .menu-group {
   text-align: center;
   text-transform: uppercase;
   font-weight: 800;
+  /* background-color: darkorchid; */
 }
 
 .menu-field {
@@ -68,11 +70,13 @@ button:focus {
   justify-content: space-between;
   flex-direction: row;
   margin-bottom: 20px;
+  /* background-color: darkolivegreen; */
 }
 
 .menu-item {
   display: flex;
   justify-content: center;
+  /* background-color: forestgreen; */
 }
 /* Reservation Page */
 
@@ -98,3 +102,8 @@ button:focus {
 }
 
 /* Sign Up Page */
+/* Admin Page */
+.admin-header {
+  text-align: center;
+  text-transform: uppercase;
+}

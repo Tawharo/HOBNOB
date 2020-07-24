@@ -14,7 +14,7 @@ function Home() {
     <div className="Home">
       <Logo />
       <div className="Home-header">
-        <h2>Welcome {user.username}</h2>
+        <h2>Welcome {user.email}</h2>
       </div>
       <p className="Home-intro">
         <button className="btn-rad" onClick={goToEditProfile}>
