@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import "./style.css";
+
 const showButtons = (isEdit) => {
   if (isEdit) {
     return (
@@ -16,12 +17,13 @@ const showButtons = (isEdit) => {
   } else {
     return (
       <div>
-        <Button variant="primary">Customize</Button>
-        <Button variant="primary">Add to Cart</Button>
+        {/* <Button variant="primary">Customize</Button> */}
+        {/* <Button variant="primary" onClick={Orderfunction.addItem(event,item)}>Add to Cart</Button> */}
       </div>
     );
   }
 };
+
 function OrderItem(props) {
   return (
     <Card className={"card-container"}>
