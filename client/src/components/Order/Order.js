@@ -87,13 +87,12 @@ class orders extends React.Component {
     let alreadyIncart = false;
     if (this.state.cart.length > 0) {
       this.state.cart = this.state.cart.map((cartItem) => {
-       
         if (cartItem._id === item._id) {
           alert("Its already choosed");
           alreadyIncart = true;
         }
-         
-          return cartItem;
+
+        return cartItem;
       });
     }
     if (!alreadyIncart) {
@@ -274,7 +273,7 @@ class orders extends React.Component {
     return items.map((order, index) => {
       if (!items.length) return null;
       const menulist = { order }.order;
-    
+
       const price = menulist.price;
       const menuItemName = menulist.menuItemName;
       const ingredients = menulist.ingredients;
@@ -317,23 +316,21 @@ class orders extends React.Component {
   ////////////////////////////  remove from the list   /////////////////////////////////////////////////
   handleRemove = (e, id) => {
     e.preventDefault();
-    let tot=0;
-    const newlist = this.state.cart.filter((item) => item._id !== id)
+    let tot = 0;
+    const newlist = this.state.cart.filter((item) => item._id !== id);
     this.setState({ cart: newlist });
-    if (newlist.length > 0){
-    newlist.map((data)=>{
-      let price = parseInt(data.price.substr(1));
-      tot = price + tot
-      console.log("tot",tot)  
-      
-      let tax=0.06*tot
-      let grandtot= tax + tot
-      this.setState({taxes:tax,itemtotal:tot,grandtotal:grandtot})
-    })
-  }
-    
+    if (newlist.length > 0) {
+      newlist.map((data) => {
+        let price = parseInt(data.price.substr(1));
+        tot = price + tot;
+        console.log("tot", tot);
+
+        let tax = 0.06 * tot;
+        let grandtot = tax + tot;
+        this.setState({ taxes: tax, itemtotal: tot, grandtotal: grandtot });
+      });
+    }
   };
- 
 
   /////////////// render function    /////////////////////////////////////////////////
   render() {
@@ -379,7 +376,9 @@ class orders extends React.Component {
           <p>Current Time : {this.state.curTime}</p>
           {this.displayReceipt(this.state.cart)}
           {this.displayPrice()}
-          <button name="print" onClick={"http://localhost:3000/frontpage"}>Print</button>
+          <button name="print" onClick={"http://localhost:3000/frontpage"}>
+            Print
+          </button>
           <button name="email"> Email</button>
         </div>
       </>
