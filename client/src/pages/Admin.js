@@ -75,10 +75,11 @@ function Admin() {
   return (
     <div>
       <Logo />
+      <br></br>
       <Container>
         <Row>
           <Col>
-            <Button variant="primary" onClick={createMenuItem}>
+            <Button variant="info" onClick={createMenuItem}>
               Create Menu Item
             </Button>
             {""}
@@ -97,10 +98,11 @@ function Admin() {
           </Col>
         </Row>
       </Container>
+      <br></br>
       <Container>
         <Row>
           <Col>
-            <h3>On the admin page!</h3>
+            <h4 className="admin-header">On the admin page!</h4>
           </Col>
         </Row>
       </Container>
@@ -165,19 +167,26 @@ function Admin() {
             </Button>
           </Form>
         )}
-        {showEditItem && (
-          <Row>
-            <Col xs={6}>
-              {menuItems.map((menuItem) => (
-                <OrderItem
-                  props={menuItem}
-                  key={menuItem.menuItemName}
-                  isEdit={true}
-                />
-              ))}
-            </Col>
-          </Row>
-        )}
+        <div className="container-menu">
+          {showEditItem && (
+            <div>
+              <h4 className="admin-header">
+                Edit menu by clicking either "Edit" or "Delete" button.
+              </h4>
+              <br></br>
+              <div className="menu-field">
+                {menuItems.map((menuItem) => (
+                  <OrderItem
+                    className="menu-item"
+                    props={menuItem}
+                    key={menuItem.menuItemName}
+                    isEdit={true}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
         {showViewOrders && <div>show orders here.</div>}
       </Container>
     </div>
