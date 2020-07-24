@@ -206,10 +206,10 @@ class orders extends React.Component {
             <Card.Body style={{ align: "left" }}>
               <Card.Text>
                 <div className="menuItem" key={index}></div>
-                <div className="menuTitle">{menuItemName}</div>
-                <div className="price">{price}</div>
-                <div className="menuDescription">{ingredients}</div>
-                <div className="quantity"> {quantity}</div>
+                <div className="menuTitle"><p>menuItemName:</p>{menuItemName}</div>
+                <div className="price"><p>price:</p>{price}</div>
+                <div className="menuDescription"><p>ingredients:</p>{ingredients}</div>
+                <div className="quantity"><p>quantity:</p>{quantity}</div>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -374,13 +374,13 @@ class orders extends React.Component {
       <>
         <Logo />
 
-        <div className="dis">
-          <p>Receipt</p>
-          <p>Current Time : {this.state.curTime}</p>
+        <div className="dis" >
+          <p style={{ width: "30rem", align: "left" , color:"rgb(77, 255, 0)"}} >Receipt</p>
+          <p style={{ width: "30rem", align: "left",color:"rgb(77, 255, 0)" }}>Current Time : {this.state.curTime}</p>
           {this.displayReceipt(this.state.cart)}
           {this.displayPrice()}
-          <button name="print" onClick={"http://localhost:3000/frontpage"}>Print</button>
-          <button name="email"> Email</button>
+         
+          <section><button name="email"> Email</button> </section>
         </div>
       </>
     );
