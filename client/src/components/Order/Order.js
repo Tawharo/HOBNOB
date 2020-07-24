@@ -1,9 +1,9 @@
 import React from "react";
 import API from "../../utils/API";
 import "./Order.css";
-import Modal from "react-modal";
-import OrderDetail from "./OrderDetail";
-import OrderItem from "../OrderItem";
+// import Modal from "react-modal";
+// import OrderDetail from "./OrderDetail";
+// import OrderItem from "../OrderItem";
 import Logo from "../Logo";
 import { Button, Card, variant, Alert } from "react-bootstrap";
 import ReactDOM from "react-dom";
