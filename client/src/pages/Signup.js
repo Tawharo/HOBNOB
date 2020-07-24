@@ -55,40 +55,37 @@ function Signup() {
         <p></p>
         <Form onSubmit={handleFormSubmit}>
           <InputGroup
+            style={{
+              color: "black",
+            }}
             id="username"
             labelText="Username"
-            placeholder="WinterIsComing"
             name="username"
             type="text"
             onChange={handleChange}
           />
           <InputGroup
+            style={{
+              color: "black",
+            }}
             id="email"
             labelText="Email"
-            placeholder="jon.snow@email.com"
             name="email"
             type="email"
             onChange={handleChange}
           />
           <InputGroup
+            style={{
+              color: "black",
+            }}
             id="pwd"
             labelText="Password"
-            placeholder="p@ssw0Rd!"
             name="password"
             type="password"
             onChange={handleChange}
           />
           <button type="submit">Submit</button>
         </Form>
-        <Link
-          style={{
-            marginTop: "1.5rem",
-            textAlign: "center",
-          }}
-          to="/login"
-        >
-          Go to Login
-        </Link>
       </div>
     </>
   );

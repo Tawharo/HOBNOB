@@ -12,7 +12,7 @@ const SimpleMap = (props) => {
     <div
       style={{
         height: "50vh",
-        width: "50%",
+        width: "90%",
         margin: "0 auto",
       }}
     >
@@ -24,7 +24,7 @@ const SimpleMap = (props) => {
         <Marker
           lat={37.6118454}
           lng={-77.47254939999999}
-          name="My Marker"
+          name="Hobnob"
           color="blue"
         />
       </GoogleMapReact>

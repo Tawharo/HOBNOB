@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 import Location from "./components/Location/Location";
 // Our pages
 import Login from "./pages/Login";
-import Order from "./pages/Order";
+import Order from "./components/Order";
 import Admin from "./pages/Admin";
 import Signup from "./pages/Signup";
 import Home from "./pages/Home";
@@ -24,9 +24,9 @@ function App() {
     <AuthProvider>
       <Router>
         <div>
-          <Navbar />
           <div className="container">
             <div className="main-container">
+              <Navbar />
               <Switch>
                 {
                   <ProtectedRoute exact path="/">

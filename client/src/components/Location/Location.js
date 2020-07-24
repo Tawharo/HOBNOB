@@ -6,7 +6,7 @@ import "./style.css";
 
 function Location() {
   return (
-    <>
+    <div>
       <Logo />
 
       <p>
@@ -15,11 +15,11 @@ function Location() {
         mighty menu available for curbside pick-up daily from 3:30-7:30pm so
         that you can enjoy HOBNOB AT HOME. Click our MENU tab to learn more.
       </p>
-      <map className="container mx-auto">
+      <map className="map">
         <SimpleMap />
       </map>
       <Marker />
-      <div className="container container-location">
+      <div className="location">
         <div className="row">
           <div className="col m3">
             <p>
@@ -52,7 +52,7 @@ function Location() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

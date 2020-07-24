@@ -1,12 +1,13 @@
-.container {
-  background-color: orange;
+.map {
+  background-color: initial;
+  /* z-index: 10; */
 }
 
-.container-location {
+.location {
   display: flex;
   margin-top: 50px;
 }
 
-.container-location .row {
+.row {
   align-items: flex-start;
 }

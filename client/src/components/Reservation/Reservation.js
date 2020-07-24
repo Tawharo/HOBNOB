@@ -67,7 +67,7 @@ function Reservation() {
         </li>
       </ul>
       <div>
-        <button type="submit" onClick={handleShow}>
+        <button className="button" onClick={handleShow}>
           Book Now RESY
         </button>
         <ResMod show={show} handleClose={handleClose} />

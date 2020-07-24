@@ -1,0 +1,9 @@
+.modal-backdrop {
+  width: 600px;
+  height: 420px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -300px;
+  margin-top: 50px;
+}

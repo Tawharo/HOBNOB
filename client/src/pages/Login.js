@@ -8,7 +8,7 @@ const loginStyle = {
   display: "flex",
   justifyContent: "center",
   flexDirection: "column",
-  maxWidth: "20rem",
+  maxWidth: "400px",
   margin: "0 auto",
 };
 
@@ -33,43 +33,48 @@ function Login() {
       });
   };
 
+  const routeChange = () => {
+    let path = "/signup";
+    history.push(path);
+  };
+
   return (
     <>
       <Logo />
       <div style={loginStyle}>
-        <h4>Login</h4>
-        <p>
-          If you do not currently have an accout. Please register by clicking
-          the sign up button.
-        </p>
-        <Form onSubmit={handleFormSubmit}>
-          <InputGroup
-            id="email"
-            labelText="Email"
-            name="email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <InputGroup
-            id="password"
-            labelText="Password"
-            name="password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </Form>
-        <Link
-          style={{
-            marginTop: "1.5rem",
-            textAlign: "center",
-          }}
-          to="/signup"
-        >
-          Go to Signup
-        </Link>
+        <div>
+          <h4>Login</h4>
+          <p>If you do not have an accout. Please sign up here.</p>
+          <button className="link-button" onClick={routeChange}>
+            Sign up
+          </button>
+          <br></br>
+          <Form onSubmit={handleFormSubmit}>
+            <InputGroup
+              style={{
+                color: "black",
+              }}
+              id="email"
+              labelText="Email"
+              name="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <InputGroup
+              style={{
+                color: "black",
+              }}
+              id="password"
+              labelText="Password"
+              name="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="button">Submit</button>
+          </Form>
+        </div>
       </div>
     </>
   );
