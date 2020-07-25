@@ -229,7 +229,7 @@ class orders extends React.Component {
   displayPrice = () => {
     return (
       <>
-        <Card className="container-checkout-reciept">
+        <Card className="container-checkout-receipt">
           <h4 className="checkout-header">Receipt</h4>
           <Card.Body className="checkout-body">
             <div className="subtotal">Subtotal: ${this.state.itemtotal}</div>
@@ -390,14 +390,15 @@ class orders extends React.Component {
     return (
       <>
         <Logo />
-        <div className="reciept-main-container">
-          <div className="reciept-container">
-            <div className="reciept">
-              <h4>Receipt</h4>
+        <div className="receipt-main-container">
+          <div className="receipt-container">
+            <div className="receipt">
+              <h4 className="receipt-head">Receipt</h4>
               <p>Current Time : {this.state.curTime}</p>
-              {this.displayReceipt(this.state.cart)}
-              {this.displayPrice()}
             </div>
+            {this.displayReceipt(this.state.cart)}
+            {this.displayPrice()}
+
             <br></br>
             <div className="btn-container">
               <button
