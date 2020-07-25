@@ -4,6 +4,7 @@
   justify-content: flex-start;
   border: none;
   background-color: #1d1919;
+  /* background-color: lightslategray; */
 }
 
 .title-container {
@@ -16,17 +17,21 @@
 .menu-title {
   display: flex;
   width: 290px;
+  /* background-color: mediumorchid; */
 }
 
 .menu-price {
   display: flex;
+  /* background-color: mediumseagreen; */
 }
 
 .description-field {
   width: 290px;
+  /* background-color: mediumvioletred; */
 }
 
 .menu-description {
   width: 290px;
   display: inline;
+  /* background-color: olive; */
 }

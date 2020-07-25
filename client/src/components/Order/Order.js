@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
 import "./Order.css";
+
 // import Modal from "react-modal";
 // import OrderDetail from "./OrderDetail";
 // import OrderItem from "../OrderItem";
@@ -47,18 +48,23 @@ class orders extends React.Component {
     return menus.map((order, index) => {
       const menulist = { order }.order;
       return (
-        <Card style={{ width: "18rem" }}>
+        <Card className={"card-container"}>
           {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
           <Card.Body>
-            <Card.Title>HobNob Menu</Card.Title>
-            <Card.Text>
-              <div className="menuItem"> key={index}</div>
-              <p className="menuTitle">{menulist.menuItemName}</p>
-              <p className="price">{menulist.price}</p>
-              <p className="menuDescription">{menulist.ingredients}</p>
-            </Card.Text>
+            <div className="title-container">
+              <Card.Title className="menu-title">
+                {menulist.menuItemName}
+              </Card.Title>
+              <Card.Title className="menu-price">{menulist.price}</Card.Title>
+            </div>
+            <div className="description-field">
+              <Card.Text className="menu-description">
+                {menulist.ingredients}
+              </Card.Text>
+            </div>
+            {/* <div className="menuItem"> key={index}</div> */}
             <Button
-              variant="primary"
+              variant="info"
               key={menulist._id}
               onClick={(event) => this.addItem(event, menulist)}
             >
@@ -163,26 +169,23 @@ class orders extends React.Component {
     });
   };
   /////////////////////////////////////////// Dispaly price ///////////////////////////////////////
+  //  ///////////////////////////////////////////////////////////////////////////////////////////
   handleOrderDetails = () => {
     return (
       <>
-        <Card style={{ width: "30rem", align: "left" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body style={{ align: "left" }}>
-            <Card.Text>
-              <label className="Total Menu">Total Menu</label>
-              <h2>{this.state.itemtotal}</h2>
-              <label className="tax">Tax</label>
-              <h3>{this.state.taxes}</h3>
-              <label className="Gtotal">Grand Total</label>
-              <h2>{this.state.grandtotal}</h2>
-              <button
-                name="btn1"
-                onClick={() => this.setState({ display: true })}
-              >
-                submit
-              </button>
-            </Card.Text>
+        <Card className="container-checkout">
+          <h4 className="checkout-header">Checkout Cart</h4>
+          <Card.Body className="checkout-body">
+            <div className="subtotal">Subtotal: ${this.state.itemtotal}</div>
+            <div className="tax">Tax: ${this.state.taxes}</div>
+            <div className="total">Total: ${this.state.grandtotal}</div>
+
+            <button
+              className="btn-remove"
+              onClick={() => this.setState({ display: true })}
+            >
+              Submit
+            </button>
           </Card.Body>
         </Card>
       </>
@@ -201,15 +204,20 @@ class orders extends React.Component {
       const quantity = menulist.qty;
       return (
         <>
-          <Card style={{ width: "30rem", align: "left" }}>
-            <Card.Body style={{ align: "left" }}>
-              <Card.Text>
-                <div className="menuItem" key={index}></div>
-                <div className="menuTitle">{menuItemName}</div>
-                <div className="price">{price}</div>
-                <div className="menuDescription">{ingredients}</div>
-                <div className="quantity"> {quantity}</div>
-              </Card.Text>
+          <Card className={"card-container-order"}>
+            {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+            <Card.Body>
+              <div className="title-container">
+                <Card.Title className="menu-title">
+                  {menulist.menuItemName}
+                </Card.Title>
+                <Card.Title className="menu-price">{menulist.price}</Card.Title>
+              </div>
+              <div className="description-field">
+                <Card.Text className="menu-description">
+                  {menulist.ingredients}
+                </Card.Text>
+              </div>
             </Card.Body>
           </Card>
         </>
@@ -221,17 +229,12 @@ class orders extends React.Component {
   displayPrice = () => {
     return (
       <>
-        <Card style={{ width: "30rem", align: "left" }}>
-          <Card.Header>Header</Card.Header>
-          <Card.Body style={{ align: "left" }}>
-            <Card.Text>
-              <label className="Total Menu">Total Menu</label>
-              <h2>{this.state.itemtotal}</h2>
-              <label className="tax">Tax</label>
-              <h3>{this.state.taxes}</h3>
-              <label className="Gtotal">Grand Total</label>
-              <h2>{this.state.grandtotal}</h2>
-            </Card.Text>
+        <Card className="container-checkout-receipt">
+          <h4 className="checkout-header">Receipt</h4>
+          <Card.Body className="checkout-body">
+            <div className="subtotal">Subtotal: ${this.state.itemtotal}</div>
+            <div className="tax">Tax: ${this.state.taxes}</div>
+            <div className="total">Total: ${this.state.grandtotal}</div>
           </Card.Body>
         </Card>
       </>
@@ -278,16 +281,25 @@ class orders extends React.Component {
       const menuItemName = menulist.menuItemName;
       const ingredients = menulist.ingredients;
       return (
-        <Card style={{ width: "30rem", align: "left" }}>
-          <Card.Body style={{ align: "left" }}>
-            <Card.Text>
-              <div className="menuItem" key={index}></div>
-              <div className="menuTitle">{menuItemName}</div>
-              <div className="price">{price}</div>
-              <div className="menuDescription">{ingredients}</div>
-              <div>
+        <Card className={"card-container-order"}>
+          {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+          <Card.Body>
+            <div className="title-container">
+              <Card.Title className="menu-title">
+                {menulist.menuItemName}
+              </Card.Title>
+              <Card.Title className="menu-price">{menulist.price}</Card.Title>
+            </div>
+            <div className="description-field">
+              <Card.Text className="menu-description">
+                {menulist.ingredients}
+              </Card.Text>
+            </div>
+            <div className="btn-container">
+              <div className="qty-modify">
                 <label name="Qty">Quantity</label>
                 <input
+                  className="btn-input"
                   value={this.findValue(menulist._id)}
                   onChange={(e) => {
                     console.log({ menulist });
@@ -296,17 +308,18 @@ class orders extends React.Component {
                   type="number"
                 />
               </div>
-              <div>
+              <div className="qty-modify">
                 <button
+                  className="btn-remove"
                   type="button"
                   id={menulist._id}
                   value={menulist._id}
                   onClick={(e) => this.handleRemove(e, menulist._id)}
                 >
-                  Remove menu
+                  Remove
                 </button>
               </div>
-            </Card.Text>
+            </div>
           </Card.Body>
         </Card>
       );
@@ -338,9 +351,14 @@ class orders extends React.Component {
     if (this.state.cart.length === 0) {
       return (
         <>
-          <div>
-            <Logo />
-            <div className="blog">{this.displaymenus(this.state.menus)}</div>
+          <Logo />
+          <div className="container-menu">
+            <>
+              <div className="menu-field">
+                {this.displaymenus(this.state.menus)}
+                <div className="menu-item"></div>
+              </div>
+            </>
           </div>
         </>
       );
@@ -349,13 +367,15 @@ class orders extends React.Component {
     if (this.state.display !== true) {
       return (
         <>
-          <div>
-            <Logo />
-            <div className="blog">{this.displaymenus(this.state.menus)}</div>
+          <Logo />
+          <div className="container-menu">
+            <>
+              <div className="menu-field">
+                {this.displaymenus(this.state.menus)}
+                <div className="menu-item"></div>
+              </div>
+            </>
           </div>
-          {/* {this.state.showOrderDetail ? (
-          <OrderDetail report={this.state.finalOrder} />
-        ) : null} */}
 
           <div className="display">
             {this.displaychoosedmenu(this.state.cart)}
@@ -370,16 +390,26 @@ class orders extends React.Component {
     return (
       <>
         <Logo />
+        <div className="receipt-main-container">
+          <div className="receipt-container">
+            <div className="receipt">
+              <h4 className="receipt-head">Receipt</h4>
+              <p>Current Time : {this.state.curTime}</p>
+            </div>
+            {this.displayReceipt(this.state.cart)}
+            {this.displayPrice()}
 
-        <div className="dis">
-          <p>Receipt</p>
-          <p>Current Time : {this.state.curTime}</p>
-          {this.displayReceipt(this.state.cart)}
-          {this.displayPrice()}
-          <button name="print" onClick={"http://localhost:3000/frontpage"}>
-            Print
-          </button>
-          <button name="email"> Email</button>
+            <br></br>
+            <div className="btn-container">
+              <button
+                className="btn-remove"
+                onClick={"http://localhost:3000/frontpage"}
+              >
+                Print
+              </button>
+              <button className="btn-remove">Email</button>
+            </div>
+          </div>
         </div>
       </>
     );
