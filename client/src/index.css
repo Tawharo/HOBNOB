@@ -1,7 +1,9 @@
 @media (min-width: 768px) {
   .container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    /* width: 990px; */
   }
 
   .main-container {
@@ -28,6 +30,7 @@ body {
 
 .btn-rad {
   border-radius: 0.25rem;
+  background-color: rgb(225, 70, 45);
 }
 
 button {
@@ -106,4 +109,10 @@ button:focus {
 .admin-header {
   text-align: center;
   text-transform: uppercase;
+}
+
+/* Order Page */
+.btn-add {
+  border-radius: 0.25rem;
+  background-color: rgb(225, 70, 45);
 }
